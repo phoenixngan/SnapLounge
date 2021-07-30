@@ -9,7 +9,6 @@ import * as ImagePicker from "expo-image-picker";
 export default function ChatScreen({ route }) {
   const [imageURI, setImageURI] = useState(null);
   const [messages, setMessages] = useState([]);
-
   const { chatName, currUser } = route.params;
 
   useEffect(() => {
@@ -64,7 +63,7 @@ export default function ChatScreen({ route }) {
 
     const uploadTask = firebase
       .storage()
-      .ref(user.uid + "/" + filename)
+      .ref(currUser.uid + "/" + filename)
       .put(blob);
     // set progress state
     uploadTask.on("state_changed", (snapshot) => {

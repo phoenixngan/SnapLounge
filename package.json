@@ -30,7 +30,8 @@
     "react-native-maps": "0.28.0",
     "react-native-multiple-select-list": "^1.0.4",
     "react-native-screens": "^3.4.0",
-    "react-native-web": "~0.13.12"
+    "react-native-web": "~0.13.12",
+    "react-navigation-tabs": "^2.11.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import firebase from "@firebase/app";
 import Colors from "../constants/Colors";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, navigation} from "react";
 import db from "../firebase";
 
 export default function SignupScreen() {
@@ -84,9 +84,7 @@ export default function SignupScreen() {
 
       <TouchableOpacity
         style={[styles.buttonContainer, styles.signupButton]}
-        onPress={() => {
-          navigation.navigate("Signup");
-        }}
+        onPress={onPressCreate}
       >
         <Text style={styles.signupText}>Sign up</Text>
       </TouchableOpacity>

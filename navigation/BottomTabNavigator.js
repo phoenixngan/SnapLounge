@@ -7,6 +7,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import TabBarIcon from "../components/TabBarIcon";
 
+import Lounge from "../screens/Lounge";
 import CameraScreen from "../screens/CameraScreen";
 import HomeScreen from "../screens/HomeScreen";
 import StoriesScreen from "../screens/StoriesScreen";
@@ -100,10 +101,10 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name="Spotlight"
-        component={SpotlightScreen}
+        name="Lounge"
+        component={Lounge}
         options={{
-          title: "Spotlight",
+          title: "Lounge",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon focused={focused} name="play-outline" />
           ),
@@ -131,8 +132,8 @@ function getHeaderTitle(route) {
       return "Camera";
     case "Friends":
       return "Friends";
-    case "Spotlight":
-      return "Spotlight";
+    case "Lounge":
+      return "Lounge";
   }
 }
 
