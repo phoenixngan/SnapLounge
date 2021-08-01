@@ -8,29 +8,14 @@ import * as ImagePicker from "expo-image-picker";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const whiteEllipse = require("../assets/whiteEllipse.png");
-const greyBox = require("../assets/greyBox.png");
-const celebration = require("../assets/celebration.png");
-const anxious = require("../assets/anxious.png");
-const potato = require("../assets/potato.png");
-const chill = require("../assets/chill.png");
 const greyCircle = require("../assets/greyCircle.png");
 
-export default function CallToAction(){
+export default function Mood(){
   return(
     <View style={styles.container}>
       <Image source={greyCircle} style={styles.greyCircle1}>
         <Text style={styles.one}>
           1.
-        </Text>
-      </Image>
-      <Image source={greyCircle} style={styles.greyCircle2}>
-        <Text style={styles.two}>
-          2.
-        </Text>
-      </Image>
-      <Image source={greyCircle} style={styles.greyCircle3}>
-        <Text style={styles.three}>
-          3.
         </Text>
       </Image>
 
@@ -234,19 +219,5 @@ const styles = StyleSheet.create({
     height: 51,
     left: 50,
     top: 240,
-  },
-  greyCircle2: {
-    position: "absolute",
-    width: 51,
-    height: 51,
-    left: 50,
-    top: 361,
-  },
-  greyCircle3: {
-    position: "absolute",
-    width: 51,
-    height: 51,
-    left: 50,
-    top: 460,
   },
 });
