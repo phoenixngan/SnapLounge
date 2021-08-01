@@ -175,6 +175,10 @@ function getHeaderTitle(route) {
       return "LoungeIntro";
     case "Spotlight":
       return "Spotlight";
+    case "QuestionOne":
+      return "QuestionOne";
+    case "QuestionTwo":
+      return "QuestionTwo";
     //   return (<View style = {styles.lounge}>
     //     <Text style = {styles.loungeHeader}>
     //     Lounge

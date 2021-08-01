@@ -5,21 +5,31 @@ import { GiftedChat, Actions } from "react-native-gifted-chat";
 import db from "../firebase";
 import firebase from "@firebase/app";
 import * as ImagePicker from "expo-image-picker";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native";
+import QuestionOne from "../screens/QuestionOne";
 
 const orangeRect = require("../assets/orangeRect.png");
 const bitmojiGuy = require("../assets/bitmojiGuy.png");
 const blueEllipse = require("../assets/blueEllipse.png");
 
-export default function LoungeIntro(){
+export default function LoungeIntro({navigation, route, QuestionOne: QuestionOne}){
   return(
     <View style={styles.container}>
       <Image source={orangeRect} style={styles.orangeRect}></Image>
       <Image source={bitmojiGuy} style={styles.bitmojiGuy}></Image>
-      <Image source={blueEllipse} style={styles.blueEllipse}></Image>
-      <Text style={styles.start}>
-        Start
-      </Text>
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("QuestionOne");
+        }}
+      >
+        <ImageBackground source={blueEllipse} style={styles.blueEllipse}>
+        <Text style={styles.start}>
+          Start
+        </Text>
+        </ImageBackground>
+      </TouchableOpacity>
+
       <Text style={styles.heyThere}>
         Hey there!
       </Text>
@@ -85,8 +95,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 114,
     height: 41,
-    left: 161,
-    top: 638,
+    left: 72,
+    top: 12.5,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
