@@ -1,12 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import * as React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View, Text, StatusBar, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Ionicons } from "@expo/vector-icons";
 
 import TabBarIcon from "../components/TabBarIcon";
-
 import Lounge from "../screens/Lounge";
 import CameraScreen from "../screens/CameraScreen";
 import HomeScreen from "../screens/HomeScreen";
@@ -25,6 +24,8 @@ export default function BottomTabNavigator({ navigation, route }) {
   // https://reactnavigation.org/docs/en/screen-options-resolution.html
   React.useLayoutEffect(() => {
     const navigationOptions = { headerTitle: getHeaderTitle(route) };
+    const image = require("../assets/bitmojiFace.png");
+
     if (getHeaderTitle(route) === "Stories") {
       navigationOptions.headerRight = () => (
         <TouchableOpacity
@@ -37,11 +38,37 @@ export default function BottomTabNavigator({ navigation, route }) {
             name={"person-circle-outline"}
             size={40}
             style={{ marginRight: 5 }}
-            color={Colors.snapblue}
+            color={Colors.snapblue}x
           />
         </TouchableOpacity>
       );
-    } else {
+    } else if (getHeaderTitle(route) === "Lounge") {
+          navigationOptions.headerRight = () => (
+            <TouchableOpacity
+              style={styles.Circle}
+              onPress={() => {
+                navigation.navigate("Profile");
+              }}
+            >
+              <Ionicons
+                name={"person-circle-outline"}
+                size={40}
+                style={{ marginRight: 5 }}
+                color={Colors.snapblue}
+              />
+            </TouchableOpacity>
+          );
+          navigationOptions.headerLeft = () => (
+            <TouchableOpacity
+              style={styles.Circle}
+              onPress={() => {
+                navigation.navigate("Profile");
+              }}
+            >
+              <Image source={image} style={styles.image}></Image>
+            </TouchableOpacity>
+          );
+        } else {
       navigationOptions.headerRight = null;
     }
     navigation.setOptions(navigationOptions);
@@ -101,6 +128,16 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
+        name="Spotlight"
+        component={SpotlightScreen}
+        options={{
+          title: "Spotlight",
+          tabBarIcon: ({ focused }) => (
+            <TabBarIcon focused={focused} name="play-outline" />
+          ),
+        }}
+      />
+      <BottomTab.Screen
         name="Lounge"
         component={Lounge}
         options={{
@@ -134,11 +171,31 @@ function getHeaderTitle(route) {
       return "Friends";
     case "Lounge":
       return "Lounge";
+    case "LoungeIntro":
+      return "LoungeIntro";
+    case "Spotlight":
+      return "Spotlight";
+    //   return (<View style = {styles.lounge}>
+    //     <Text style = {styles.loungeHeader}>
+    //     Lounge
+    //     </Text>
+    //   </View>
+    // );
   }
 }
 
 const styles = StyleSheet.create({
   tab: {
     backgroundColor: "black",
+  },
+  lounge: {
+    flex: 1,
+    backgroundColor: "#ACACCA",
+    paddingTop: StatusBar.currentHeight,
+  },
+  loungeHeader: {
+    flex: 1,
+    textAlign: "center",
+    fontSize: 20,
   },
 });
