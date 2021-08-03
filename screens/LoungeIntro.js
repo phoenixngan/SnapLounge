@@ -47,7 +47,7 @@ export default function LoungeIntro({navigation, route, QuestionOne: QuestionOne
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#A45CFF",
+    backgroundColor: "#1EACD9",
     paddingTop: StatusBar.currentHeight,
   },
   text: {
@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     height: 176,
     left: 71,
     top: 368,
+    color: "white",
   },
   bitmojiGuy: {
     position: "absolute",

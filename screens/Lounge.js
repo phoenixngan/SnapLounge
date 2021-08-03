@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Image, Platform, View, Button, StatusBar, StyleSheet, Text, ImageBackground } from "react-native";
+import { Image, Platform, View, Button, StatusBar, StyleSheet, Text, ImageBackground} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { GiftedChat, Actions } from "react-native-gifted-chat";
 import db from "../firebase";
@@ -20,6 +20,7 @@ const eyeBall = require("../assets/eyeball.png");
 export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
   return(
     <View style={styles.container}>
+      <StatusBar hidden={true} />
       <Image source={image} style={styles.image}></Image>
       <Image source={cat} style={styles.image2}></Image>
       <Image source={yellowCircle} style={styles.image4}></Image>
@@ -52,7 +53,7 @@ export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ACACCA",
+    backgroundColor: "#1EACD9",
     paddingTop: StatusBar.currentHeight,
   },
   text: {

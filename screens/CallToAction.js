@@ -5,7 +5,8 @@ import { GiftedChat, Actions } from "react-native-gifted-chat";
 import db from "../firebase";
 import firebase from "@firebase/app";
 import * as ImagePicker from "expo-image-picker";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { TouchableOpacity } from "react-native";
+import Mood from "../screens/Mood";
 
 const whiteEllipse = require("../assets/whiteEllipse.png");
 const greyBox = require("../assets/greyBox.png");
@@ -15,28 +16,28 @@ const potato = require("../assets/potato.png");
 const chill = require("../assets/chill.png");
 const greyCircle = require("../assets/greyCircle.png");
 
-export default function CallToAction(){
+export default function CallToAction({navigation, route, Mood: Mood}){
   return(
     <View style={styles.container}>
-      <Image source={greyCircle} style={styles.greyCircle1}>
+      <ImageBackground source={greyCircle} style={styles.greyCircle1}>
         <Text style={styles.one}>
           1.
         </Text>
-      </Image>
-      <Image source={greyCircle} style={styles.greyCircle2}>
+      </ImageBackground>
+      <ImageBackground source={greyCircle} style={styles.greyCircle2}>
         <Text style={styles.two}>
           2.
         </Text>
-      </Image>
-      <Image source={greyCircle} style={styles.greyCircle3}>
+      </ImageBackground>
+      <ImageBackground source={greyCircle} style={styles.greyCircle3}>
         <Text style={styles.three}>
           3.
         </Text>
-      </Image>
+      </ImageBackground>
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("LoungeIntro");
+          navigation.navigate("Mood");
         }}
       >
         <ImageBackground source={whiteEllipse} style={styles.whiteEllipse}>
@@ -74,15 +75,15 @@ export default function CallToAction(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E5E5E5",
+    backgroundColor: "#1EACD9",
     paddingTop: StatusBar.currentHeight,
   },
   one:{
     position: "absolute",
     width: 45,
     height: 38,
-    left: 56,
-    top: 257,
+    left: 15,
+    top: 7,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -94,8 +95,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 45,
     height: 38,
-    left: 56,
-    top: 369,
+    left: 15,
+    top: 7,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -107,8 +108,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 45,
     height: 38,
-    left: 56,
-    top: 476,
+    left: 15,
+    top: 7,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -196,8 +197,8 @@ const styles = StyleSheet.create({
   },
   Heres: {
     position: "absolute",
-    width: 276,
-    height: 99,
+    width: 290,
+    height: 112,
     left: 53,
     top: 123,
     fontFamily: "Graphik",
@@ -211,7 +212,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 114,
     height: 41,
-    left: 72,
+    left: 64,
     top: 12.5,
     fontFamily: "Graphik",
     fontStyle: "normal",
@@ -225,7 +226,7 @@ const styles = StyleSheet.create({
     width: 180,
     height: 45,
     left: 118,
-    top: 624,
+    top: 684,
     borderRadius: 57,
   },
   greyCircle1: {

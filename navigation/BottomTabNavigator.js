@@ -43,31 +43,32 @@ export default function BottomTabNavigator({ navigation, route }) {
         </TouchableOpacity>
       );
     } else if (getHeaderTitle(route) === "Lounge") {
-          navigationOptions.headerRight = () => (
-            <TouchableOpacity
-              style={styles.Circle}
-              onPress={() => {
-                navigation.navigate("Profile");
-              }}
-            >
-              <Ionicons
-                name={"person-circle-outline"}
-                size={40}
-                style={{ marginRight: 5 }}
-                color={Colors.snapblue}
-              />
-            </TouchableOpacity>
-          );
-          navigationOptions.headerLeft = () => (
-            <TouchableOpacity
-              style={styles.Circle}
-              onPress={() => {
-                navigation.navigate("Profile");
-              }}
-            >
-              <Image source={image} style={styles.image}></Image>
-            </TouchableOpacity>
-          );
+        navigation.setOptions({headerShown: false});
+          // navigationOptions.headerRight = () => (
+          //   <TouchableOpacity
+          //     style={styles.Circle}
+          //     onPress={() => {
+          //       navigation.navigate("Profile");
+          //     }}
+          //   >
+          //     <Ionicons
+          //       name={"person-circle-outline"}
+          //       size={40}
+          //       style={{ marginRight: 5 }}
+          //       color={Colors.snapblue}
+          //     />
+          //   </TouchableOpacity>
+          // );
+          // navigationOptions.headerLeft = () => (
+          //   <TouchableOpacity
+          //     style={styles.Circle}
+          //     onPress={() => {
+          //       navigation.navigate("Profile");
+          //     }}
+          //   >
+          //     <Image source={image} style={styles.image}></Image>
+          //   </TouchableOpacity>
+          // );
         } else {
       navigationOptions.headerRight = null;
     }
@@ -124,16 +125,6 @@ export default function BottomTabNavigator({ navigation, route }) {
           title: "Your Stories",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon focused={focused} name="people-outline" />
-          ),
-        }}
-      />
-      <BottomTab.Screen
-        name="Spotlight"
-        component={SpotlightScreen}
-        options={{
-          title: "Spotlight",
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon focused={focused} name="play-outline" />
           ),
         }}
       />
