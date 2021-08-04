@@ -16,19 +16,30 @@ const friends = require("../assets/friends.png");
 const heart = require("../assets/heart.png");
 const whiteCircle = require("../assets/whiteCircle.png");
 const eyeBall = require("../assets/eyeball.png");
+const plant = require("../assets/plant.png");
+const menu = require("../assets/Menu.png");
+const addFriends = require("../assets/AddFriends.png");
+const profile = require("../assets/Profile.png");
+const search = require("../assets/Search.png");
+const loungeIcon = require("../assets/LoungeIcon.png");
 
 export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
   return(
     <View style={styles.container}>
       <StatusBar hidden={true} />
       <Image source={image} style={styles.image}></Image>
-      <Image source={cat} style={styles.image2}></Image>
-      <Image source={yellowCircle} style={styles.image4}></Image>
-      <Image source={yellowCircle} style={styles.image5}></Image>
-      <Image source={friends} style={styles.image6}></Image>
-      <Image source={heart} style={styles.image7}></Image>
+      <Image source={cat} style={styles.cat}></Image>
+      <Image source={friends} style={styles.friends}></Image>
+      <Image source={heart} style={styles.heart}></Image>
       <Image source={whiteCircle} style={styles.image8}></Image>
       <Image source={eyeBall} style={styles.image9}></Image>
+      <Image source={plant} style={styles.plant}></Image>
+      <Image source={menu} style={styles.menu}></Image>
+      <Image source={addFriends} style={styles.addFriends}></Image>
+      <Image source={profile} style={styles.profile}></Image>
+      <Image source={search} style={styles.search}></Image>
+      <Image source={loungeIcon} style={styles.loungeIcon}></Image>
+
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("LoungeIntro");
@@ -41,7 +52,7 @@ export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
         </ImageBackground>
       </TouchableOpacity>
       <Text style={styles.text3}>
-        Latest Mood
+        Snap Lounge
       </Text>
       <Text style={styles.text}>
         Take the time to self reflect!
@@ -53,7 +64,7 @@ export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1EACD9",
+    backgroundColor: "#3F49AF",
     paddingTop: StatusBar.currentHeight,
   },
   text: {
@@ -81,7 +92,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     lineHeight: 26,
     textAlign: "center",
-    color: "#FFFFFF",
+    color: "#4E59C0",
   },
   text3: {
     position: "absolute",
@@ -103,7 +114,7 @@ const styles = StyleSheet.create({
     left: 53,
     top: 342,
   },
-  image2: {
+  cat: {
     position: "absolute",
     width: 96,
     height: 84,
@@ -116,33 +127,19 @@ const styles = StyleSheet.create({
     left: 87,
     top: 267,
   },
-  image4: {
-    position: "absolute",
-    width: 35,
-    height: 35,
-    left: 336,
-    top: 281,
-  },
-  image5: {
-    position: "absolute",
-    width: 35,
-    height: 35,
-    left: 36,
-    top: 281,
-  },
-  image6: {
+  friends: {
     position: "absolute",
     left: 41,
     top: 289.62,
-    width: 24.84,
-    height: 18.75,
+    width: 35,
+    height: 35,
   },
-  image7: {
+  heart: {
     position: "absolute",
     left: 341,
     top: 289.62,
-    width: 23.84,
-    height: 20.75,
+    width: 35,
+    height: 35,
   },
   image8: {
     position: "absolute",
@@ -157,5 +154,47 @@ const styles = StyleSheet.create({
     height: 30,
     left: 365,
     top: 15,
+  },
+  plant: {
+    position: "absolute",
+    width: 91,
+    height: 167,
+    left: 32,
+    top: 494,
+  },
+  menu: {
+    position: "absolute",
+    width: 35,
+    height: 35,
+    left: 334,
+    top: 46,
+  },
+  addFriends: {
+    position: "absolute",
+    width: 35,
+    height: 35,
+    left: 289,
+    top: 46,
+  },
+  profile: {
+    position: "absolute",
+    width: 46,
+    height: 47,
+    left: 1,
+    top: 34,
+  },
+  search: {
+    position: "absolute",
+    width: 35,
+    height: 35,
+    left: 50,
+    top: 44,
+  },
+  loungeIcon:{
+    position: "absolute",
+    width: 50,
+    height: 50,
+    left: 120,
+    top: 50,
   },
 });

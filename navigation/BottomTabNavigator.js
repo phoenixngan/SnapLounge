@@ -38,12 +38,14 @@ export default function BottomTabNavigator({ navigation, route }) {
             name={"person-circle-outline"}
             size={40}
             style={{ marginRight: 5 }}
-            color={Colors.snapblue}x
+            color={Colors.snapblue}
           />
         </TouchableOpacity>
       );
     } else if (getHeaderTitle(route) === "Lounge") {
-        navigation.setOptions({headerShown: false});
+        //navigation.setOptions({headerShown: false});
+        navigationOptions.headerShown = false;
+        navigationOptions.headerRight = null;
           // navigationOptions.headerRight = () => (
           //   <TouchableOpacity
           //     style={styles.Circle}

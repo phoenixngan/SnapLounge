@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 15,
     textAlign: "center",
-    color: "white",
+    color: "#FFFFFF",
   },
   Welcome: {
     position: "absolute",
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     height: 176,
     left: 71,
     top: 368,
-    color: "white",
+    color: "#FFFFFF",
   },
   bitmojiGuy: {
     position: "absolute",
