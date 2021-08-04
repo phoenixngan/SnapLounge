@@ -8,24 +8,31 @@ import * as ImagePicker from "expo-image-picker";
 import { TouchableOpacity } from "react-native";
 import QuestionOne from "../screens/QuestionOne";
 
-const orangeRect = require("../assets/orangeRect.png");
+const whiteRect = require("../assets/whiteRect.png");
 const bitmojiGuy = require("../assets/bitmojiGuy.png");
-const blueEllipse = require("../assets/blueEllipse.png");
+const orangeEllipse = require("../assets/orangeEllipse.png");
+const card = require("../assets/card.png");
+const nextCard = require("../assets/nextCard.png");
+const cardHeader = require("../assets/cardHeader.png");
 
 export default function LoungeIntro({navigation, route, QuestionOne: QuestionOne}){
   return(
     <View style={styles.container}>
-      <Image source={orangeRect} style={styles.orangeRect}></Image>
+      <Image source={card} style={styles.card}></Image>
+      <Image source={nextCard} style={styles.nextCard}></Image>
+      <Image source={cardHeader} style={styles.cardHeader}></Image>
+      <Image source={whiteRect} style={styles.whiteRect}></Image>
       <Image source={bitmojiGuy} style={styles.bitmojiGuy}></Image>
+
 
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("QuestionOne");
         }}
       >
-        <ImageBackground source={blueEllipse} style={styles.blueEllipse}>
+        <ImageBackground source={orangeEllipse} style={styles.orangeEllipse}>
         <Text style={styles.start}>
-          Start
+          Start!
         </Text>
         </ImageBackground>
       </TouchableOpacity>
@@ -47,7 +54,7 @@ export default function LoungeIntro({navigation, route, QuestionOne: QuestionOne
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1EACD9",
+    backgroundColor: "#0C0F60",
     paddingTop: StatusBar.currentHeight,
   },
   text: {
@@ -62,7 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 15,
     textAlign: "center",
-    color: "#FFFFFF",
+    color: "#38385B",
   },
   Welcome: {
     position: "absolute",
@@ -76,7 +83,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     lineHeight: 19,
     textAlign: "center",
-    color: "#643A00",
+    color: "#38385B",
   },
   heyThere: {
     position: "absolute",
@@ -104,7 +111,30 @@ const styles = StyleSheet.create({
     lineHeight: 17,
     color: "#FFFFFF",
   },
-  orangeRect: {
+  card:{
+    position:"absolute",
+    width: 345,
+    height: 670,
+    left: 40,
+    top: 30,
+    borderRadius: 20,
+  },
+  nextCard:{
+    position:"absolute",
+    width: 15,
+    height: 670,
+    left: 410,
+    top: 30,
+    borderRadius: 20,
+  },
+  cardHeader:{
+    position:"absolute",
+    width: 115,
+    height: 15,
+    left: 150,
+    top: 50,
+  },
+  whiteRect: {
     position: "absolute",
     width: 274,
     height: 176,
@@ -119,7 +149,7 @@ const styles = StyleSheet.create({
     left: 120,
     top: 180,
   },
-  blueEllipse: {
+  orangeEllipse: {
     position: "absolute",
     width: 180,
     height: 45,
