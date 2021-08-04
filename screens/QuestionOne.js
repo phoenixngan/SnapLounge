@@ -12,10 +12,18 @@ const bitmojiMeditate = require("../assets/bitmojiMeditate.png");
 const whiteEllipse = require("../assets/whiteEllipse.png");
 const scaleBar = require("../assets/scaleBar.png");
 const scaleCircle = require("../assets/scaleCircle.png");
+const card = require("../assets/card.png");
+const nextCard = require("../assets/nextCard.png");
+const previousCard = require("../assets/previousCard.png");
+const cardHeader = require("../assets/cardHeader.png");
 
 export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo}){
   return(
     <View style={styles.container}>
+      <Image source={card} style={styles.card}></Image>
+      <Image source={nextCard} style={styles.nextCard}></Image>
+      <Image source={previousCard} style={styles.previousCard}></Image>
+      <Image source={cardHeader} style={styles.cardHeader}></Image>
       <Image source={bitmojiMeditate} style={styles.bitmojiMeditate}></Image>
       <Image source={scaleBar} style={styles.scaleBar1}></Image>
       <Image source={scaleCircle} style={styles.scaleCircle1}></Image>
@@ -73,7 +81,7 @@ export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1EACD9",
+    backgroundColor: "#0C0F60",
     paddingTop: StatusBar.currentHeight,
   },
   Energy: {
@@ -218,6 +226,37 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 17,
     color: "black",
+  },
+  card:{
+    position:"absolute",
+    width: 345,
+    height: 670,
+    left: 40,
+    top: 30,
+    borderRadius: 20,
+  },
+  nextCard:{
+    position:"absolute",
+    width: 15,
+    height: 670,
+    left: 410,
+    top: 30,
+    borderRadius: 20,
+  },
+  previousCard:{
+    position:"absolute",
+    width: 15,
+    height: 670,
+    left: 0,
+    top: 30,
+    borderRadius: 20,
+  },
+  cardHeader:{
+    position:"absolute",
+    width: 115,
+    height: 15,
+    left: 150,
+    top: 50,
   },
   bitmojiMeditate: {
     position: "absolute",
