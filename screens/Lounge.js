@@ -1,12 +1,15 @@
-import React, { useState, useCallback, useEffect } from "react";
-import { Image, Platform, View, Button, StatusBar, StyleSheet, Text, ImageBackground} from "react-native";
+import React, { useState, useCallback, useEffect, Component } from "react";
+import { Image, Platform, View, Button, StyleSheet, Text, ImageBackground, SafeAreaView, AppRegistry,} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { StatusBar } from 'expo-status-bar';
 import { GiftedChat, Actions } from "react-native-gifted-chat";
 import db from "../firebase";
 import firebase from "@firebase/app";
 import * as ImagePicker from "expo-image-picker";
 import { TouchableOpacity } from "react-native";
 import LoungeIntro from "../screens/LoungeIntro";
+import { useFonts } from 'expo-font';
+
 
 const image = require("../assets/bitmojiLounge.png");
 const cat = require("../assets/cat.png");
@@ -22,11 +25,21 @@ const addFriends = require("../assets/AddFriends.png");
 const profile = require("../assets/Profile.png");
 const search = require("../assets/Search.png");
 const loungeIcon = require("../assets/LoungeIcon.png");
+const background = require("../assets/Background.png");
+
 
 export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
+  const [loaded] = useFonts({
+    Graphik: require('../assets/Graphik-Regular.ttf'),
+  });
+  if (!loaded) {
+    return null;
+  }
+
   return(
     <View style={styles.container}>
-      <StatusBar hidden={true} />
+      <StatusBar style="light" />
+      <Image source={background} style={styles.background}></Image>
       <Image source={image} style={styles.image}></Image>
       <Image source={cat} style={styles.cat}></Image>
       <Image source={friends} style={styles.friends}></Image>
@@ -39,6 +52,7 @@ export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
       <Image source={profile} style={styles.profile}></Image>
       <Image source={search} style={styles.search}></Image>
       <Image source={loungeIcon} style={styles.loungeIcon}></Image>
+      <View style={styles.blackRect}></View>
 
       <TouchableOpacity
         onPress={() => {
@@ -66,6 +80,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#3F49AF",
     paddingTop: StatusBar.currentHeight,
+  },
+  background:{
+    position: "absolute",
+    width: 450,
+    height: 830,
+    left: 0,
+    top: 0,
   },
   text: {
     position: "absolute",
@@ -196,5 +217,13 @@ const styles = StyleSheet.create({
     height: 50,
     left: 120,
     top: 50,
+  },
+  blackRect: {
+    position: "absolute",
+    width: 500,
+    height: 40,
+    left: 0,
+    top: 0,
+    backgroundColor: "black",
   },
 });

@@ -42,10 +42,13 @@ export default function BottomTabNavigator({ navigation, route }) {
           />
         </TouchableOpacity>
       );
-    } else if (getHeaderTitle(route) === "Lounge") {
+    } else {
+      navigationOptions.headerRight = null;
+    }
+
+    if (getHeaderTitle(route) === "Lounge") {
         //navigation.setOptions({headerShown: false});
         navigationOptions.headerShown = false;
-        navigationOptions.headerRight = null;
           // navigationOptions.headerRight = () => (
           //   <TouchableOpacity
           //     style={styles.Circle}
@@ -72,7 +75,7 @@ export default function BottomTabNavigator({ navigation, route }) {
           //   </TouchableOpacity>
           // );
         } else {
-      navigationOptions.headerRight = null;
+      navigationOptions.headerShown = true;
     }
     navigation.setOptions(navigationOptions);
   }, [navigation, route]);

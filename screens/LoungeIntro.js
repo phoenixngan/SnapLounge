@@ -9,11 +9,14 @@ import { TouchableOpacity } from "react-native";
 import QuestionOne from "../screens/QuestionOne";
 
 const whiteRect = require("../assets/whiteRect.png");
+const blackRect = require("../assets/blackRect.png");
 const bitmojiGuy = require("../assets/bitmojiGuy.png");
 const orangeEllipse = require("../assets/orangeEllipse.png");
 const card = require("../assets/card.png");
 const nextCard = require("../assets/nextCard.png");
 const cardHeader = require("../assets/cardHeader.png");
+const back = require("../assets/back.png");
+
 
 export default function LoungeIntro({navigation, route, QuestionOne: QuestionOne}){
   return(
@@ -23,7 +26,8 @@ export default function LoungeIntro({navigation, route, QuestionOne: QuestionOne
       <Image source={cardHeader} style={styles.cardHeader}></Image>
       <Image source={whiteRect} style={styles.whiteRect}></Image>
       <Image source={bitmojiGuy} style={styles.bitmojiGuy}></Image>
-
+      <Image source={back} style={styles.back}></Image>
+      <View style={styles.blackRect}></View>
 
       <TouchableOpacity
         onPress={() => {
@@ -140,7 +144,14 @@ const styles = StyleSheet.create({
     height: 176,
     left: 71,
     top: 368,
-    color: "#FFFFFF",
+  },
+  blackRect: {
+    position: "absolute",
+    width: 500,
+    height: 40,
+    left: 0,
+    top: 0,
+    backgroundColor: "black",
   },
   bitmojiGuy: {
     position: "absolute",
@@ -154,7 +165,14 @@ const styles = StyleSheet.create({
     width: 180,
     height: 45,
     left: 118,
-    top: 624,
+    top: 730,
     borderRadius: 57,
   },
+  back:{
+    position: "absolute",
+    width: 69,
+    height: 22,
+    left: 30,
+    top: 750,
+  }
 });

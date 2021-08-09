@@ -6,19 +6,31 @@ import db from "../firebase";
 import firebase from "@firebase/app";
 import * as ImagePicker from "expo-image-picker";
 import { TouchableOpacity } from "react-native";
-import Mood from "../screens/Mood";
+import Lounge from "../screens/Lounge";
 
-const whiteEllipse = require("../assets/whiteEllipse.png");
+const orangeEllipse = require("../assets/orangeEllipse.png");
 const greyBox = require("../assets/greyBox.png");
 const celebration = require("../assets/celebration.png");
 const anxious = require("../assets/anxious.png");
 const potato = require("../assets/potato.png");
 const chill = require("../assets/chill.png");
 const greyCircle = require("../assets/greyCircle.png");
+const card = require("../assets/card.png");
+const previousCard = require("../assets/previousCard.png");
+const cardHeader = require("../assets/cardHeader.png");
+const resources = require("../assets/Resources.png");
 
-export default function CallToAction({navigation, route, Mood: Mood}){
+export default function CallToAction({navigation, route, Lounge: Lounge}){
   return(
     <View style={styles.container}>
+      <Image source={card} style={styles.card}></Image>
+      <Image source={previousCard} style={styles.previousCard}></Image>
+      <Image source={cardHeader} style={styles.cardHeader}></Image>
+      <ImageBackground source={resources} style={styles.moreResources}>
+        <Text style={styles.resourcesText}>
+          Resources
+        </Text>
+      </ImageBackground>
       <ImageBackground source={greyCircle} style={styles.greyCircle1}>
         <Text style={styles.one}>
           1.
@@ -37,15 +49,16 @@ export default function CallToAction({navigation, route, Mood: Mood}){
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Mood");
+          navigation.popToTop();
         }}
       >
-        <ImageBackground source={whiteEllipse} style={styles.whiteEllipse}>
-          <Text style={styles.continue}>
-            Continue
+        <ImageBackground source={orangeEllipse} style={styles.orangeEllipse}>
+          <Text style={styles.done}>
+          Done!
           </Text>
         </ImageBackground>
       </TouchableOpacity>
+      <View style={styles.blackRect}></View>
 
       <Text style={styles.Heres}>
         Here's some things that you can do!
@@ -62,11 +75,11 @@ export default function CallToAction({navigation, route, Mood: Mood}){
       <Text style={styles.text2}>
         Take some time to find a comfortable position and focus on your breath.
       </Text>
-      <Text style={styles.xxx}>
-        XXX
+      <Text style={styles.Walk}>
+        Take a walk!
       </Text>
       <Text style={styles.text3}>
-        XXXX
+        Taking a walk can relieve the mind, and clear your head.
       </Text>
     </View>
   );
@@ -75,7 +88,7 @@ export default function CallToAction({navigation, route, Mood: Mood}){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#1EACD9",
+    backgroundColor: "#0C0F60",
     paddingTop: StatusBar.currentHeight,
   },
   one:{
@@ -89,7 +102,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 33,
     lineHeight: 36,
-    color: "#000000",
+    color: "#28899F",
   },
   two:{
     position: "absolute",
@@ -102,7 +115,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 33,
     lineHeight: 36,
-    color: "#000000",
+    color: "#28899F",
   },
   three:{
     position: "absolute",
@@ -115,7 +128,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 33,
     lineHeight: 36,
-    color: "#000000",
+    color: "#28899F",
   },
   Break: {
     position: "absolute",
@@ -169,7 +182,7 @@ const styles = StyleSheet.create({
     lineHeight: 15,
     color: "#000000",
   },
-  xxx: {
+  Walk: {
     position: "absolute",
     width: 207,
     height: 26,
@@ -197,10 +210,10 @@ const styles = StyleSheet.create({
   },
   Heres: {
     position: "absolute",
-    width: 290,
+    width: 250,
     height: 112,
-    left: 53,
-    top: 123,
+    left: 100,
+    top: 90,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -208,7 +221,7 @@ const styles = StyleSheet.create({
     lineHeight: 36,
     color: "#FFFFFF",
   },
-  continue: {
+  done: {
     position: "absolute",
     width: 114,
     height: 41,
@@ -219,14 +232,35 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 15,
     lineHeight: 17,
-    color: "black",
+    color: "#FFFFFF",
   },
-  whiteEllipse: {
+  resourcesText: {
+    position: "absolute",
+    width: 114,
+    height: 41,
+    left: 35,
+    top: 7,
+    fontFamily: "Graphik",
+    fontStyle: "normal",
+    fontWeight: "600",
+    fontSize: 15,
+    lineHeight: 17,
+    color: "#FFFFFF",
+  },
+  orangeEllipse: {
     position: "absolute",
     width: 180,
     height: 45,
     left: 118,
-    top: 684,
+    top: 730,
+    borderRadius: 57,
+  },
+  moreResources: {
+    position: "absolute",
+    width: 144,
+    height: 38,
+    left: 140,
+    top: 620,
     borderRadius: 57,
   },
   greyCircle1: {
@@ -249,5 +283,36 @@ const styles = StyleSheet.create({
     height: 51,
     left: 50,
     top: 460,
+  },
+  card:{
+    position:"absolute",
+    width: 345,
+    height: 670,
+    left: 40,
+    top: 30,
+    borderRadius: 20,
+  },
+  previousCard:{
+    position:"absolute",
+    width: 15,
+    height: 670,
+    left: 0,
+    top: 30,
+    borderRadius: 20,
+  },
+  cardHeader:{
+    position:"absolute",
+    width: 115,
+    height: 15,
+    left: 150,
+    top: 50,
+  },
+  blackRect: {
+    position: "absolute",
+    width: 500,
+    height: 40,
+    left: 0,
+    top: 0,
+    backgroundColor: "black",
   },
 });

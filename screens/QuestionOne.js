@@ -8,8 +8,11 @@ import * as ImagePicker from "expo-image-picker";
 import { TouchableOpacity } from "react-native";
 import QuestionTwo from "../screens/QuestionTwo";
 
+import MultiSlider from '@ptomasroos/react-native-multi-slider';
+
+
 const bitmojiMeditate = require("../assets/bitmojiMeditate.png");
-const whiteEllipse = require("../assets/whiteEllipse.png");
+const orangeEllipse = require("../assets/orangeEllipse.png");
 const scaleBar = require("../assets/scaleBar.png");
 const scaleCircle = require("../assets/scaleCircle.png");
 const card = require("../assets/card.png");
@@ -19,6 +22,7 @@ const cardHeader = require("../assets/cardHeader.png");
 
 export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo}){
   return(
+
     <View style={styles.container}>
       <Image source={card} style={styles.card}></Image>
       <Image source={nextCard} style={styles.nextCard}></Image>
@@ -26,18 +30,45 @@ export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo
       <Image source={cardHeader} style={styles.cardHeader}></Image>
       <Image source={bitmojiMeditate} style={styles.bitmojiMeditate}></Image>
       <Image source={scaleBar} style={styles.scaleBar1}></Image>
+      <View style={styles.sliders}>
+        <Text> HEREHEREREREHREHRHE </Text>
+        <MultiSlider
+          selectedStyle={{
+            backgroundColor: 'gold',
+          }}
+          unselectedStyle={{
+            backgroundColor: 'silver',
+          }}
+          values={[5]}
+          containerStyle={{
+            height: 40,
+          }}
+          trackStyle={{
+            height: 10,
+            backgroundColor: 'red',
+          }}
+          touchDimensions={{
+            height: 40,
+            width: 40,
+            borderRadius: 20,
+            slipDisplacement: 40,
+          }}
+          sliderLength={280}
+        />
+      </View>
       <Image source={scaleCircle} style={styles.scaleCircle1}></Image>
       <Image source={scaleBar} style={styles.scaleBar2}></Image>
       <Image source={scaleCircle} style={styles.scaleCircle2}></Image>
       <Image source={scaleBar} style={styles.scaleBar3}></Image>
       <Image source={scaleCircle} style={styles.scaleCircle3}></Image>
+      <View style={styles.blackRect}></View>
 
       <TouchableOpacity
         onPress={() => {
           navigation.navigate("QuestionTwo");
         }}
       >
-        <ImageBackground source={whiteEllipse} style={styles.whiteEllipse}>
+        <ImageBackground source={orangeEllipse} style={styles.orangeEllipse}>
         <Text style={styles.continue}>
           Continue
         </Text>
@@ -90,7 +121,7 @@ const styles = StyleSheet.create({
     height: 23,
     left: 71,
     top: 177,
-    fontFamily: "Roboto",
+    fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 15,
@@ -103,7 +134,7 @@ const styles = StyleSheet.create({
     height: 20,
     left: 64,
     top: 248,
-    fontFamily: "Roboto",
+    fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 13,
@@ -116,7 +147,7 @@ const styles = StyleSheet.create({
     height: 20,
     left: 260,
     top: 248,
-    fontFamily: "Roboto",
+    fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 13,
@@ -129,7 +160,7 @@ const styles = StyleSheet.create({
     height: 23,
     left: 71,
     top: 305,
-    fontFamily: "Roboto",
+    fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 15,
@@ -142,7 +173,7 @@ const styles = StyleSheet.create({
     height: 20,
     left: 64,
     top: 377,
-    fontFamily: "Roboto",
+    fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 13,
@@ -155,7 +186,7 @@ const styles = StyleSheet.create({
     height: 20,
     left: 260,
     top: 378,
-    fontFamily: "Roboto",
+    fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 13,
@@ -168,7 +199,7 @@ const styles = StyleSheet.create({
     height: 23,
     left: 71,
     top: 433,
-    fontFamily: "Roboto",
+    fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 15,
@@ -181,7 +212,7 @@ const styles = StyleSheet.create({
     height: 20,
     left: 64,
     top: 505,
-    fontFamily: "Roboto",
+    fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 13,
@@ -194,7 +225,7 @@ const styles = StyleSheet.create({
     height: 20,
     left: 260,
     top: 505,
-    fontFamily: "Roboto",
+    fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
     fontSize: 13,
@@ -225,7 +256,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     fontSize: 15,
     lineHeight: 17,
-    color: "black",
+    color: "#FFFFFF",
   },
   card:{
     position:"absolute",
@@ -265,12 +296,12 @@ const styles = StyleSheet.create({
     left: 145,
     top: 517,
   },
-  whiteEllipse: {
+  orangeEllipse: {
     position: "absolute",
     width: 180,
     height: 45,
     left: 118,
-    top: 684,
+    top: 730,
     borderRadius: 57,
   },
   scaleBar1: {
@@ -314,5 +345,17 @@ const styles = StyleSheet.create({
     height: 36,
     left: 70,
     top: 462,
+  },
+  blackRect: {
+    position: "absolute",
+    width: 500,
+    height: 40,
+    left: 0,
+    top: 0,
+    backgroundColor: "black",
+  },
+  sliders: {
+    margin: 20,
+    width: 280,
   },
 });
