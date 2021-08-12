@@ -9,9 +9,12 @@ import LoginScreen from "./screens/LoginScreen";
 import SignupScreen from "./screens/SignupScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import BottomTabNavigator from "./navigation/BottomTabNavigator";
+import Lounge from "./screens/Lounge";
 import LoungeIntro from "./screens/LoungeIntro";
 import QuestionOne from "./screens/QuestionOne";
 import QuestionTwo from "./screens/QuestionTwo";
+import QuestionThree from "./screens/QuestionThree";
+import QuestionFour from "./screens/QuestionFour";
 import CallToAction from "./screens/CallToAction";
 import Mood from "./screens/Mood";
 import firebase from "@firebase/app";
@@ -41,9 +44,12 @@ function App() {
                 <Stack.Screen name="Chat" component={ChatScreen} />
                 <Stack.Screen name="Friends" component={FriendsScreen} />
                 <Stack.Screen name="Profile" component={ProfileScreen} />
+                <Stack.Screen name="Lounge" component={Lounge} options={{headerShown: false}}/>
                 <Stack.Screen name="LoungeIntro" component={LoungeIntro} options={{headerShown: false}}/>
                 <Stack.Screen name="QuestionOne" component={QuestionOne} options={{headerShown: false}}/>
                 <Stack.Screen name="QuestionTwo" component={QuestionTwo} options={{headerShown: false}}/>
+                <Stack.Screen name="QuestionThree" component={QuestionThree} options={{headerShown: false}}/>
+                <Stack.Screen name="QuestionFour" component={QuestionFour} options={{headerShown: false}}/>
                 <Stack.Screen name="CallToAction" component={CallToAction} options={{headerShown: false}}/>
                 <Stack.Screen name="Mood" component={Mood} options={{headerShown: false}} />
               </>

@@ -8,17 +8,17 @@ import * as ImagePicker from "expo-image-picker";
 import { TouchableOpacity } from "react-native";
 import QuestionTwo from "../screens/QuestionTwo";
 
-import MultiSlider from '@ptomasroos/react-native-multi-slider';
-
-
-const bitmojiMeditate = require("../assets/bitmojiMeditate.png");
 const orangeEllipse = require("../assets/orangeEllipse.png");
-const scaleBar = require("../assets/scaleBar.png");
-const scaleCircle = require("../assets/scaleCircle.png");
+const sad = require("../assets/Sad.png");
+const overwhelmed = require("../assets/Overwhelmed.png");
+const bored = require("../assets/Bored.png");
+const delighted = require("../assets/Delighted.png");
 const card = require("../assets/card.png");
 const nextCard = require("../assets/nextCard.png");
 const previousCard = require("../assets/previousCard.png");
 const cardHeader = require("../assets/cardHeader.png");
+const backButton = require("../assets/back.png");
+const circles = require("../assets/Circles1.png");
 
 export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo}){
   return(
@@ -28,39 +28,22 @@ export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo
       <Image source={nextCard} style={styles.nextCard}></Image>
       <Image source={previousCard} style={styles.previousCard}></Image>
       <Image source={cardHeader} style={styles.cardHeader}></Image>
-      <Image source={bitmojiMeditate} style={styles.bitmojiMeditate}></Image>
-      <Image source={scaleBar} style={styles.scaleBar1}></Image>
-      <View style={styles.sliders}>
-        <Text> HEREHEREREREHREHRHE </Text>
-        <MultiSlider
-          selectedStyle={{
-            backgroundColor: 'gold',
-          }}
-          unselectedStyle={{
-            backgroundColor: 'silver',
-          }}
-          values={[5]}
-          containerStyle={{
-            height: 40,
-          }}
-          trackStyle={{
-            height: 10,
-            backgroundColor: 'red',
-          }}
-          touchDimensions={{
-            height: 40,
-            width: 40,
-            borderRadius: 20,
-            slipDisplacement: 40,
-          }}
-          sliderLength={280}
-        />
-      </View>
-      <Image source={scaleCircle} style={styles.scaleCircle1}></Image>
-      <Image source={scaleBar} style={styles.scaleBar2}></Image>
-      <Image source={scaleCircle} style={styles.scaleCircle2}></Image>
-      <Image source={scaleBar} style={styles.scaleBar3}></Image>
-      <Image source={scaleCircle} style={styles.scaleCircle3}></Image>
+
+      <Image source={bored} style={styles.Bored}></Image>
+      <Image source={delighted} style={styles.Delighted}></Image>
+      <Image source={sad} style={styles.Sad}></Image>
+      <Image source={overwhelmed} style={styles.Overwhelmed}></Image>
+
+      <Image source={circles} style={styles.circles1}></Image>
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
+        <Image source={backButton} style={styles.back}></Image>
+      </TouchableOpacity>
+
       <View style={styles.blackRect}></View>
 
       <TouchableOpacity
@@ -75,36 +58,23 @@ export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo
         </ImageBackground>
       </TouchableOpacity>
 
-      <Text style={styles.MoodScale}>
-        Mood Scale
+      <Text style={styles.Which}>
+        Which Meme best represents your mood?
       </Text>
-      <Text style={styles.Energy}>
-        Rate your energy level for today
+
+      <Text style={styles.bored}>
+        Bored
       </Text>
-      <Text style={styles.lowEnergy}>
-        Low energy
+      <Text style={styles.sad}>
+        Sad
       </Text>
-      <Text style={styles.highEnergy}>
-        High Energy
+      <Text style={styles.delighted}>
+        Delighted
       </Text>
-      <Text style={styles.Focus}>
-        Rate your focus for today
+      <Text style={styles.overwhelmed}>
+        Overwhelmed
       </Text>
-      <Text style={styles.lowFocus}>
-        Low Focus
-      </Text>
-      <Text style={styles.highFocus}>
-        High Focus
-      </Text>
-      <Text style={styles.Peace}>
-        Rate your peace for today
-      </Text>
-      <Text style={styles.lowPeace}>
-        Low Peace
-      </Text>
-      <Text style={styles.highPeace}>
-        High Peace
-      </Text>
+
     </View>
   );
 }
@@ -115,12 +85,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#0C0F60",
     paddingTop: StatusBar.currentHeight,
   },
-  Energy: {
+  bored: {
     position: "absolute",
-    width: 224,
+    width: 132,
     height: 23,
-    left: 71,
-    top: 177,
+    left: 115,
+    top: 459,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
@@ -128,38 +98,38 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     color: "white",
   },
-  lowEnergy: {
+  sad: {
     position: "absolute",
-    width: 91,
-    height: 20,
-    left: 64,
-    top: 248,
-    fontFamily: "Graphik",
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: 13,
-    lineHeight: 15,
-    color: "white",
-  },
-  highEnergy: {
-    position: "absolute",
-    width: 100,
-    height: 20,
-    left: 260,
-    top: 248,
-    fontFamily: "Graphik",
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: 13,
-    lineHeight: 15,
-    color: "white",
-  },
-  Focus: {
-    position: "absolute",
-    width: 224,
+    width: 133,
     height: 23,
-    left: 71,
-    top: 305,
+    left: 275,
+    top: 459,
+    fontFamily: "Graphik",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: 15,
+    lineHeight: 18,
+    color: "white",
+  },
+  delighted: {
+    position: "absolute",
+    width: 132,
+    height: 23,
+    left: 105,
+    top: 664,
+    fontFamily: "Graphik",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: 15,
+    lineHeight: 18,
+    color: "white",
+  },
+  overwhelmed: {
+    position: "absolute",
+    width: 133,
+    height: 23,
+    left: 236,
+    top: 663,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
@@ -167,77 +137,12 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     color: "#FFFFFF",
   },
-  lowFocus: {
-    position: "absolute",
-    width: 91,
-    height: 20,
-    left: 64,
-    top: 377,
-    fontFamily: "Graphik",
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: 13,
-    lineHeight: 15,
-    color: "#FFFFFF",
-  },
-  highFocus: {
-    position: "absolute",
-    width: 100,
-    height: 20,
-    left: 260,
-    top: 378,
-    fontFamily: "Graphik",
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: 13,
-    lineHeight: 15,
-    color: "#FFFFFF",
-  },
-  Peace: {
-    position: "absolute",
-    width: 224,
-    height: 23,
-    left: 71,
-    top: 433,
-    fontFamily: "Graphik",
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: 15,
-    lineHeight: 18,
-    color: "#FFFFFF",
-  },
-  lowPeace: {
-    position: "absolute",
-    width: 91,
-    height: 20,
-    left: 64,
-    top: 505,
-    fontFamily: "Graphik",
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: 13,
-    lineHeight: 15,
-    color: "#FFFFFF",
-  },
-  highPeace: {
-    position: "absolute",
-    width: 100,
-    height: 20,
-    left: 260,
-    top: 505,
-    fontFamily: "Graphik",
-    fontStyle: "normal",
-    fontWeight: "500",
-    fontSize: 13,
-    lineHeight: 15,
-    color: "#FFFFFF",
-  },
-  MoodScale: {
+  Which: {
     position: "absolute",
     width: 257,
-    height: 55,
-    left: 129,
-    top: 104,
+    height: 137,
+    left: 90,
+    top: 165,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -249,7 +154,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 114,
     height: 41,
-    left: 64,
+    left: 57,
     top: 12.5,
     fontFamily: "Graphik",
     fontStyle: "normal",
@@ -262,24 +167,24 @@ const styles = StyleSheet.create({
     position:"absolute",
     width: 345,
     height: 670,
-    left: 40,
-    top: 30,
+    left: 36,
+    top: 90,
     borderRadius: 20,
   },
   nextCard:{
     position:"absolute",
     width: 15,
     height: 670,
-    left: 410,
-    top: 30,
+    left: 405,
+    top: 90,
     borderRadius: 20,
   },
   previousCard:{
     position:"absolute",
     width: 15,
     height: 670,
-    left: 0,
-    top: 30,
+    left: -3,
+    top: 90,
     borderRadius: 20,
   },
   cardHeader:{
@@ -287,64 +192,15 @@ const styles = StyleSheet.create({
     width: 115,
     height: 15,
     left: 150,
-    top: 50,
-  },
-  bitmojiMeditate: {
-    position: "absolute",
-    width: 144,
-    height: 144,
-    left: 145,
-    top: 517,
+    top: 110,
   },
   orangeEllipse: {
     position: "absolute",
     width: 180,
     height: 45,
-    left: 118,
-    top: 730,
+    left: 120,
+    top: 790,
     borderRadius: 57,
-  },
-  scaleBar1: {
-    position: "absolute",
-    width: 269,
-    height: 15,
-    left: 76,
-    top: 217,
-  },
-  scaleBar2: {
-    position: "absolute",
-    width: 269,
-    height: 15,
-    left: 76,
-    top: 345,
-  },
-  scaleBar3: {
-    position: "absolute",
-    width: 269,
-    height: 15,
-    left: 76,
-    top: 473,
-  },
-  scaleCircle1: {
-    position: "absolute",
-    width: 36,
-    height: 36,
-    left: 70,
-    top: 206,
-  },
-  scaleCircle2: {
-    position: "absolute",
-    width: 36,
-    height: 36,
-    left: 70,
-    top: 334,
-  },
-  scaleCircle3: {
-    position: "absolute",
-    width: 36,
-    height: 36,
-    left: 70,
-    top: 462,
   },
   blackRect: {
     position: "absolute",
@@ -354,8 +210,46 @@ const styles = StyleSheet.create({
     top: 0,
     backgroundColor: "black",
   },
-  sliders: {
-    margin: 20,
-    width: 280,
+  back:{
+    position: "absolute",
+    width: 69,
+    height: 22,
+    left: 30,
+    top: 805,
+  },
+  circles1:{
+    position: "absolute",
+    width: 60,
+    height: 7,
+    left: 330,
+    top: 809,
+  },
+  Bored:{
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 66,
+    top: 302,
+  },
+  Delighted:{
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 66,
+    top: 507,
+  },
+  Sad:{
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 217,
+    top: 302,
+  },
+  Overwhelmed:{
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 217,
+    top: 507,
   },
 });

@@ -15,10 +15,11 @@ const orangeEllipse = require("../assets/orangeEllipse.png");
 const card = require("../assets/card.png");
 const nextCard = require("../assets/nextCard.png");
 const cardHeader = require("../assets/cardHeader.png");
-const back = require("../assets/back.png");
+const backButton = require("../assets/back.png");
+const circles = require("../assets/Circles1.png");
 
 
-export default function LoungeIntro({navigation, route, QuestionOne: QuestionOne}){
+export default function LoungeIntro({navigation, route, back, QuestionOne: QuestionOne}){
   return(
     <View style={styles.container}>
       <Image source={card} style={styles.card}></Image>
@@ -26,7 +27,16 @@ export default function LoungeIntro({navigation, route, QuestionOne: QuestionOne
       <Image source={cardHeader} style={styles.cardHeader}></Image>
       <Image source={whiteRect} style={styles.whiteRect}></Image>
       <Image source={bitmojiGuy} style={styles.bitmojiGuy}></Image>
-      <Image source={back} style={styles.back}></Image>
+      <Image source={circles} style={styles.circles1}></Image>
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
+        <Image source={backButton} style={styles.back}></Image>
+      </TouchableOpacity>
+
       <View style={styles.blackRect}></View>
 
       <TouchableOpacity
@@ -66,7 +76,7 @@ const styles = StyleSheet.create({
     width: 231,
     height: 115,
     left: 92,
-    top: 429,
+    top: 570,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "400",
@@ -80,7 +90,7 @@ const styles = StyleSheet.create({
     width: 231,
     height: 115,
     left: 92,
-    top: 399,
+    top: 525,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -94,7 +104,7 @@ const styles = StyleSheet.create({
     width: 291,
     height: 137,
     left: 92,
-    top: 88,
+    top: 170,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -106,7 +116,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 114,
     height: 41,
-    left: 72,
+    left: 70,
     top: 12.5,
     fontFamily: "Graphik",
     fontStyle: "normal",
@@ -119,16 +129,16 @@ const styles = StyleSheet.create({
     position:"absolute",
     width: 345,
     height: 670,
-    left: 40,
-    top: 30,
+    left: 36,
+    top: 90,
     borderRadius: 20,
   },
   nextCard:{
     position:"absolute",
     width: 15,
     height: 670,
-    left: 410,
-    top: 30,
+    left: 405,
+    top: 90,
     borderRadius: 20,
   },
   cardHeader:{
@@ -136,14 +146,14 @@ const styles = StyleSheet.create({
     width: 115,
     height: 15,
     left: 150,
-    top: 50,
+    top: 110,
   },
   whiteRect: {
     position: "absolute",
     width: 274,
     height: 176,
     left: 71,
-    top: 368,
+    top: 500,
   },
   blackRect: {
     position: "absolute",
@@ -155,17 +165,17 @@ const styles = StyleSheet.create({
   },
   bitmojiGuy: {
     position: "absolute",
-    width: 180,
-    height: 180,
-    left: 120,
-    top: 180,
+    width: 250,
+    height: 250,
+    left: 85,
+    top: 235,
   },
   orangeEllipse: {
     position: "absolute",
     width: 180,
     height: 45,
-    left: 118,
-    top: 730,
+    left: 120,
+    top: 790,
     borderRadius: 57,
   },
   back:{
@@ -173,6 +183,13 @@ const styles = StyleSheet.create({
     width: 69,
     height: 22,
     left: 30,
-    top: 750,
+    top: 805,
+  },
+  circles1:{
+    position: "absolute",
+    width: 60,
+    height: 7,
+    left: 330,
+    top: 809,
   }
 });

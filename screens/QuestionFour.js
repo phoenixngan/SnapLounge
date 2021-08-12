@@ -6,27 +6,36 @@ import db from "../firebase";
 import firebase from "@firebase/app";
 import * as ImagePicker from "expo-image-picker";
 import { TouchableOpacity } from "react-native";
-import CallToAction from "../screens/CallToAction";
+import Mood from "../screens/Mood";
 
 const orangeEllipse = require("../assets/orangeEllipse.png");
+const greyBox = require("../assets/greyBox.png");
+const celebration = require("../assets/celebration.png");
+const anxious = require("../assets/anxious.png");
+const potato = require("../assets/potato.png");
+const chill = require("../assets/chill.png");
 const card = require("../assets/card.png");
 const nextCard = require("../assets/nextCard.png");
 const previousCard = require("../assets/previousCard.png");
 const cardHeader = require("../assets/cardHeader.png");
-const shareButtons = require("../assets/shareButtons.png");
-const overwhelmed = require("../assets/overwhelmedMood.png");
 const backButton = require("../assets/back.png");
 const circles = require("../assets/Circles1.png");
 
-export default function Mood({navigation, route, CallToAction: CallToAction}){
+export default function QuestionFour({navigation, route, Mood: Mood}){
   return(
     <View style={styles.container}>
       <Image source={card} style={styles.card}></Image>
       <Image source={nextCard} style={styles.nextCard}></Image>
       <Image source={previousCard} style={styles.previousCard}></Image>
       <Image source={cardHeader} style={styles.cardHeader}></Image>
-      <Image source={shareButtons} style={styles.shareButtons}></Image>
-      <Image source={overwhelmed} style={styles.overwhelmed}></Image>
+      <Image source={greyBox} style={styles.greyBox1}></Image>
+      <Image source={greyBox} style={styles.greyBox2}></Image>
+      <Image source={greyBox} style={styles.greyBox3}></Image>
+      <Image source={greyBox} style={styles.greyBox4}></Image>
+      <Image source={celebration} style={styles.celebration}></Image>
+      <Image source={anxious} style={styles.anxious}></Image>
+      <Image source={potato} style={styles.potato}></Image>
+      <Image source={chill} style={styles.chill}></Image>
       <Image source={circles} style={styles.circles1}></Image>
 
       <TouchableOpacity
@@ -41,7 +50,7 @@ export default function Mood({navigation, route, CallToAction: CallToAction}){
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("CallToAction");
+          navigation.navigate("Mood");
         }}
       >
         <ImageBackground source={orangeEllipse} style={styles.orangeEllipse}>
@@ -51,23 +60,20 @@ export default function Mood({navigation, route, CallToAction: CallToAction}){
         </ImageBackground>
       </TouchableOpacity>
 
-      <Text style={styles.Results}>
-        Results
+      <Text style={styles.Pick}>
+        Choose the Bitmoji you relate to the most!
       </Text>
-      <Text style={styles.Mood}>
-        Current Mood:
+      <Text style={styles.Celebration}>
+        Celebration
       </Text>
-      <Text style={styles.MoodText}>
-        Energy: Mid {"\n"}
-        Focus: Slightly low
-        Inner peace: Low
+      <Text style={styles.Anxious}>
+        Anxious
       </Text>
-      <Text style={styles.Affirmation}>
-        Affirmation
+      <Text style={styles.Potato}>
+        Exhausted
       </Text>
-      <Text style={styles.text}>
-        Remember, take in one day at a time! It’s okay to take a step back sometimes to take care of yourself. {"\n\n"}
-        We can only handle so much information at a time. You are doing the best you can!
+      <Text style={styles.Chill}>
+        Chill
       </Text>
     </View>
   );
@@ -79,69 +85,68 @@ const styles = StyleSheet.create({
     backgroundColor: "#0C0F60",
     paddingTop: StatusBar.currentHeight,
   },
-  Mood: {
+  Celebration: {
     position: "absolute",
-    width: 207,
-    height: 26,
-    left: 75,
-    top: 250,
+    width: 132,
+    height: 23,
+    left: 93,
+    top: 459,
     fontFamily: "Graphik",
     fontStyle: "normal",
-    fontWeight: "600",
-    fontSize: 21,
-    lineHeight: 21,
+    fontWeight: "500",
+    fontSize: 15,
+    lineHeight: 18,
     color: "white",
   },
-  MoodText:{
+  Anxious: {
     position: "absolute",
-    width: 150,
-    height: 100,
-    left: 75,
-    top: 280,
+    width: 133,
+    height: 23,
+    left: 252,
+    top: 459,
     fontFamily: "Graphik",
     fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: 16,
-    lineHeight: 25,
-    color: "#FFFFFF",
+    fontWeight: "500",
+    fontSize: 15,
+    lineHeight: 18,
+    color: "white",
   },
-  Affirmation: {
+  Potato: {
     position: "absolute",
-    width: 200,
-    height: 30,
-    left: 75,
-    top: 420,
+    width: 132,
+    height: 23,
+    left: 100,
+    top: 664,
     fontFamily: "Graphik",
     fontStyle: "normal",
-    fontWeight: "600",
-    fontSize: 28,
-    lineHeight: 26,
-    color: "#FFFFFF",
+    fontWeight: "500",
+    fontSize: 15,
+    lineHeight: 18,
+    color: "white",
   },
-  text: {
+  Chill: {
     position: "absolute",
-    width: 260,
-    height: 140,
-    left: 75,
-    top: 460,
+    width: 133,
+    height: 23,
+    left: 267,
+    top: 663,
     fontFamily: "Graphik",
     fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: 16,
+    fontWeight: "500",
+    fontSize: 15,
     lineHeight: 18,
     color: "#FFFFFF",
   },
-  Results: {
+  Pick: {
     position: "absolute",
-    width: 276,
+    width: 251,
     height: 99,
-    left: 153,
-    top: 160,
+    left: 82,
+    top: 164,
     fontFamily: "Graphik",
-    fontStyle: "normal",
     fontWeight: "600",
-    fontSize: 33,
-    lineHeight: 36,
+    fontSize: 30,
+    lineHeight: 33,
     color: "#FFFFFF",
   },
   continue: {
@@ -196,19 +201,65 @@ const styles = StyleSheet.create({
     top: 790,
     borderRadius: 57,
   },
-  shareButtons: {
+  greyBox1: {
     position: "absolute",
-    width: 275,
-    height: 36,
-    left: 70,
-    top: 670,
+    width: 133,
+    height: 149,
+    left: 66,
+    top: 302,
+    opacity: .5,
   },
-  overwhelmed:{
+  greyBox2: {
     position: "absolute",
-    width: 130,
-    height: 130,
-    left: 230,
-    top: 240,
+    width: 133,
+    height: 149,
+    left: 217,
+    top: 302,
+    opacity: .5,
+  },
+  greyBox3: {
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 66,
+    top: 507,
+    opacity: .5,
+  },
+  greyBox4: {
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 217,
+    top: 507,
+    opacity: .5,
+  },
+  celebration: {
+    position: "absolute",
+    width: 132,
+    height: 132,
+    left: 66,
+    top: 319,
+  },
+  anxious: {
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 210,
+    top: 291,
+  },
+  potato: {
+    position: "absolute",
+    width: 122,
+    height: 123,
+    left: 72,
+    top: 528,
+  },
+  chill: {
+    position: "absolute",
+    width: 144,
+    height: 144,
+    left: 213,
+    top: 511,
   },
   blackRect: {
     position: "absolute",

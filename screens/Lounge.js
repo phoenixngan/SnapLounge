@@ -17,24 +17,16 @@ const checkIn = require("../assets/CheckInOutline.png");
 const yellowCircle = require("../assets/yellowCircle.png");
 const friends = require("../assets/friends.png");
 const heart = require("../assets/heart.png");
-const whiteCircle = require("../assets/whiteCircle.png");
-const eyeBall = require("../assets/eyeball.png");
 const plant = require("../assets/plant.png");
 const menu = require("../assets/Menu.png");
-const addFriends = require("../assets/AddFriends.png");
-const profile = require("../assets/Profile.png");
 const search = require("../assets/Search.png");
 const loungeIcon = require("../assets/LoungeIcon.png");
 const background = require("../assets/Background.png");
-
+const settings = require("../assets/settings.png");
+const back = require("../assets/backSign.png");
+const date = require("../assets/Date.png");
 
 export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
-  const [loaded] = useFonts({
-    Graphik: require('../assets/Graphik-Regular.ttf'),
-  });
-  if (!loaded) {
-    return null;
-  }
 
   return(
     <View style={styles.container}>
@@ -44,14 +36,23 @@ export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
       <Image source={cat} style={styles.cat}></Image>
       <Image source={friends} style={styles.friends}></Image>
       <Image source={heart} style={styles.heart}></Image>
-      <Image source={whiteCircle} style={styles.image8}></Image>
-      <Image source={eyeBall} style={styles.image9}></Image>
+      <Image source={date} style = {styles.date}></Image>
       <Image source={plant} style={styles.plant}></Image>
-      <Image source={menu} style={styles.menu}></Image>
-      <Image source={addFriends} style={styles.addFriends}></Image>
-      <Image source={profile} style={styles.profile}></Image>
-      <Image source={search} style={styles.search}></Image>
+      <ImageBackground source={menu} style={styles.menu}>
+        <Image source={settings} style={styles.settings}></Image>
+      </ImageBackground>
       <Image source={loungeIcon} style={styles.loungeIcon}></Image>
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.popToTop();
+        }}
+      >
+        <ImageBackground source={menu} style={styles.menu2}>
+          <Image source={back} style = {styles.back}></Image>
+        </ImageBackground>
+      </TouchableOpacity>
+      
       <View style={styles.blackRect}></View>
 
       <TouchableOpacity
@@ -79,12 +80,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#3F49AF",
-    paddingTop: StatusBar.currentHeight,
   },
   background:{
     position: "absolute",
     width: 450,
-    height: 830,
+    height: 900,
     left: 0,
     top: 0,
   },
@@ -92,8 +92,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 182,
     height: 70,
-    left: 178,
-    top: 123,
+    left: 175,
+    top: 240,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -119,8 +119,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 182,
     height: 57,
-    left: 163,
-    top: 180,
+    left: 175,
+    top: 200,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -133,90 +133,62 @@ const styles = StyleSheet.create({
     width: 316,
     height: 316,
     left: 53,
-    top: 342,
+    top: 420,
   },
   cat: {
     position: "absolute",
     width: 96,
     height: 84,
     left: 147,
-    top: 559,
+    top: 650,
   },
   image3: {
     width: 231,
     height: 65,
-    left: 87,
-    top: 267,
+    left: 92,
+    top: 330,
   },
   friends: {
     position: "absolute",
     left: 41,
-    top: 289.62,
+    top: 345,
     width: 35,
     height: 35,
   },
   heart: {
     position: "absolute",
     left: 341,
-    top: 289.62,
+    top: 345,
     width: 35,
     height: 35,
-  },
-  image8: {
-    position: "absolute",
-    width: 110,
-    height: 110,
-    left: 38,
-    top: 111,
-  },
-  image9: {
-    position: "absolute",
-    width: 39,
-    height: 30,
-    left: 365,
-    top: 15,
   },
   plant: {
     position: "absolute",
     width: 91,
     height: 167,
     left: 32,
-    top: 494,
+    top: 580,
   },
   menu: {
     position: "absolute",
     width: 35,
     height: 35,
-    left: 334,
-    top: 46,
+    left: 370,
+    top: 55,
   },
-  addFriends: {
+  menu2: {
     position: "absolute",
     width: 35,
     height: 35,
-    left: 289,
-    top: 46,
-  },
-  profile: {
-    position: "absolute",
-    width: 46,
-    height: 47,
-    left: 1,
-    top: 34,
-  },
-  search: {
-    position: "absolute",
-    width: 35,
-    height: 35,
-    left: 50,
-    top: 44,
+    left: 10,
+    top: 55,
   },
   loungeIcon:{
     position: "absolute",
-    width: 50,
-    height: 50,
-    left: 120,
-    top: 50,
+    width: 60,
+    height: 60,
+    left: 182,
+    top: 60,
   },
   blackRect: {
     position: "absolute",
@@ -226,4 +198,25 @@ const styles = StyleSheet.create({
     top: 0,
     backgroundColor: "black",
   },
+  settings:{
+    position: "absolute",
+    width: 22,
+    height: 22,
+    left: 6.5,
+    top: 6,
+  },
+  back:{
+    position: "absolute",
+    width: 13,
+    height: 20,
+    left: 9,
+    top: 7,
+  },
+  date:{
+    position: "absolute",
+    width: 115,
+    height: 115,
+    left: 40,
+    top: 185,
+  }
 });

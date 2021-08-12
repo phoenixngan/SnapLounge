@@ -134,10 +134,10 @@ export default function BottomTabNavigator({ navigation, route }) {
         }}
       />
       <BottomTab.Screen
-        name="Lounge"
-        component={Lounge}
+        name="Spotlight"
+        component={SpotlightScreen}
         options={{
-          title: "Lounge",
+          title: "Spotlight",
           tabBarIcon: ({ focused }) => (
             <TabBarIcon focused={focused} name="play-outline" />
           ),
@@ -175,12 +175,6 @@ function getHeaderTitle(route) {
       return "QuestionOne";
     case "QuestionTwo":
       return "QuestionTwo";
-    //   return (<View style = {styles.lounge}>
-    //     <Text style = {styles.loungeHeader}>
-    //     Lounge
-    //     </Text>
-    //   </View>
-    // );
   }
 }
 

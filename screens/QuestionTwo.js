@@ -6,39 +6,122 @@ import db from "../firebase";
 import firebase from "@firebase/app";
 import * as ImagePicker from "expo-image-picker";
 import { TouchableOpacity } from "react-native";
-import Mood from "../screens/Mood";
+import QuestionThree from "../screens/QuestionThree";
 
+import MultiSlider from '@ptomasroos/react-native-multi-slider';
+
+
+const bitmojiMeditate = require("../assets/bitmojiMeditate.png");
 const orangeEllipse = require("../assets/orangeEllipse.png");
-const greyBox = require("../assets/greyBox.png");
-const celebration = require("../assets/celebration.png");
-const anxious = require("../assets/anxious.png");
-const potato = require("../assets/potato.png");
-const chill = require("../assets/chill.png");
+const scaleBar = require("../assets/scaleBar.png");
+const scaleCircle = require("../assets/scaleCircle.png");
 const card = require("../assets/card.png");
 const nextCard = require("../assets/nextCard.png");
 const previousCard = require("../assets/previousCard.png");
 const cardHeader = require("../assets/cardHeader.png");
+const backButton = require("../assets/back.png");
+const circles = require("../assets/Circles1.png");
 
-export default function QuestionTwo({navigation, route, Mood: Mood}){
+export default function QuestionTwo({navigation, route, QuestionThree: QuestionThree}){
   return(
+
     <View style={styles.container}>
       <Image source={card} style={styles.card}></Image>
       <Image source={nextCard} style={styles.nextCard}></Image>
       <Image source={previousCard} style={styles.previousCard}></Image>
       <Image source={cardHeader} style={styles.cardHeader}></Image>
-      <Image source={greyBox} style={styles.greyBox1}></Image>
-      <Image source={greyBox} style={styles.greyBox2}></Image>
-      <Image source={greyBox} style={styles.greyBox3}></Image>
-      <Image source={greyBox} style={styles.greyBox4}></Image>
-      <Image source={celebration} style={styles.celebration}></Image>
-      <Image source={anxious} style={styles.anxious}></Image>
-      <Image source={potato} style={styles.potato}></Image>
-      <Image source={chill} style={styles.chill}></Image>
+      <Image source={bitmojiMeditate} style={styles.bitmojiMeditate}></Image>
+      <Image source={scaleBar} style={styles.scaleBar1}></Image>
+      <Image source={circles} style={styles.circles1}></Image>
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.goBack();
+        }}
+      >
+        <Image source={backButton} style={styles.back}></Image>
+      </TouchableOpacity>
+      <View style={styles.sliders}>
+        <MultiSlider
+          selectedStyle={{
+            backgroundColor: 'silver',
+          }}
+          unselectedStyle={{
+            backgroundColor: 'silver',
+          }}
+          values={[5]}
+          containerStyle={{
+            height: 40,
+          }}
+          trackStyle={{
+            height: 7,
+            backgroundColor: 'red',
+          }}
+          touchDimensions={{
+            height: 40,
+            width: 40,
+            borderRadius: 20,
+            slipDisplacement: 40,
+          }}
+          sliderLength={280}
+        />
+      </View>
+      <View style={styles.sliders2}>
+        <MultiSlider
+          selectedStyle={{
+            backgroundColor: 'silver',
+          }}
+          unselectedStyle={{
+            backgroundColor: 'silver',
+          }}
+          values={[5]}
+          containerStyle={{
+            height: 40,
+          }}
+          trackStyle={{
+            height: 7,
+            backgroundColor: 'red',
+          }}
+          touchDimensions={{
+            height: 40,
+            width: 40,
+            borderRadius: 20,
+            slipDisplacement: 40,
+          }}
+          sliderLength={280}
+        />
+      </View>
+      <View style={styles.sliders3}>
+        <MultiSlider
+          selectedStyle={{
+            backgroundColor: 'silver',
+          }}
+          unselectedStyle={{
+            backgroundColor: 'silver',
+          }}
+          values={[5]}
+          containerStyle={{
+            height: 40,
+          }}
+          trackStyle={{
+            height: 7,
+            backgroundColor: 'red',
+          }}
+          touchDimensions={{
+            height: 40,
+            width: 40,
+            borderRadius: 20,
+            slipDisplacement: 40,
+          }}
+          sliderLength={280}
+        />
+      </View>
+
       <View style={styles.blackRect}></View>
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Mood");
+          navigation.navigate("QuestionThree");
         }}
       >
         <ImageBackground source={orangeEllipse} style={styles.orangeEllipse}>
@@ -48,20 +131,35 @@ export default function QuestionTwo({navigation, route, Mood: Mood}){
         </ImageBackground>
       </TouchableOpacity>
 
-      <Text style={styles.Pick}>
-        Choose the Bitmoji you relate to the most!
+      <Text style={styles.MoodScale}>
+        Mood Scale
       </Text>
-      <Text style={styles.Celebration}>
-        Celebration
+      <Text style={styles.Energy}>
+        Rate your energy level for today
       </Text>
-      <Text style={styles.Anxious}>
-        Anxious
+      <Text style={styles.lowEnergy}>
+        Low energy
       </Text>
-      <Text style={styles.Potato}>
-        Exhausted
+      <Text style={styles.highEnergy}>
+        High Energy
       </Text>
-      <Text style={styles.Chill}>
-        Chill
+      <Text style={styles.Focus}>
+        Rate your focus for today
+      </Text>
+      <Text style={styles.lowFocus}>
+        Low Focus
+      </Text>
+      <Text style={styles.highFocus}>
+        High Focus
+      </Text>
+      <Text style={styles.Peace}>
+        Rate your peace for today
+      </Text>
+      <Text style={styles.lowPeace}>
+        Low Peace
+      </Text>
+      <Text style={styles.highPeace}>
+        High Peace
       </Text>
     </View>
   );
@@ -73,12 +171,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#0C0F60",
     paddingTop: StatusBar.currentHeight,
   },
-  Celebration: {
+  Energy: {
     position: "absolute",
-    width: 132,
+    width: 224,
     height: 23,
-    left: 93,
-    top: 389,
+    left: 70,
+    top: 197,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
@@ -86,38 +184,38 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     color: "white",
   },
-  Anxious: {
+  lowEnergy: {
     position: "absolute",
-    width: 133,
-    height: 23,
-    left: 252,
-    top: 389,
+    width: 91,
+    height: 20,
+    left: 70,
+    top: 268,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: 15,
-    lineHeight: 18,
+    fontSize: 13,
+    lineHeight: 15,
     color: "white",
   },
-  Potato: {
+  highEnergy: {
     position: "absolute",
-    width: 132,
-    height: 23,
-    left: 111,
-    top: 594,
+    width: 100,
+    height: 20,
+    left: 260,
+    top: 268,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
-    fontSize: 15,
-    lineHeight: 18,
+    fontSize: 13,
+    lineHeight: 15,
     color: "white",
   },
-  Chill: {
+  Focus: {
     position: "absolute",
-    width: 133,
+    width: 224,
     height: 23,
-    left: 267,
-    top: 593,
+    left: 70,
+    top: 325,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "500",
@@ -125,13 +223,79 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     color: "#FFFFFF",
   },
-  Pick: {
+  lowFocus: {
     position: "absolute",
-    width: 251,
-    height: 99,
-    left: 82,
-    top: 104,
+    width: 91,
+    height: 20,
+    left: 70,
+    top: 397,
     fontFamily: "Graphik",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: 13,
+    lineHeight: 15,
+    color: "#FFFFFF",
+  },
+  highFocus: {
+    position: "absolute",
+    width: 100,
+    height: 20,
+    left: 260,
+    top: 398,
+    fontFamily: "Graphik",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: 13,
+    lineHeight: 15,
+    color: "#FFFFFF",
+  },
+  Peace: {
+    position: "absolute",
+    width: 224,
+    height: 23,
+    left: 70,
+    top: 453,
+    fontFamily: "Graphik",
+    fontStyle: "normal",
+    fontWeight: "600",
+    fontSize: 15,
+    lineHeight: 18,
+    color: "#FFFFFF",
+  },
+  lowPeace: {
+    position: "absolute",
+    width: 91,
+    height: 20,
+    left: 70,
+    top: 525,
+    fontFamily: "Graphik",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: 13,
+    lineHeight: 15,
+    color: "#FFFFFF",
+  },
+  highPeace: {
+    position: "absolute",
+    width: 100,
+    height: 20,
+    left: 260,
+    top: 525,
+    fontFamily: "Graphik",
+    fontStyle: "normal",
+    fontWeight: "500",
+    fontSize: 13,
+    lineHeight: 15,
+    color: "#FFFFFF",
+  },
+  MoodScale: {
+    position: "absolute",
+    width: 257,
+    height: 55,
+    left: 129,
+    top: 140,
+    fontFamily: "Graphik",
+    fontStyle: "normal",
     fontWeight: "600",
     fontSize: 30,
     lineHeight: 33,
@@ -141,7 +305,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 114,
     height: 41,
-    left: 64,
+    left: 57,
     top: 12.5,
     fontFamily: "Graphik",
     fontStyle: "normal",
@@ -154,24 +318,24 @@ const styles = StyleSheet.create({
     position:"absolute",
     width: 345,
     height: 670,
-    left: 40,
-    top: 30,
+    left: 36,
+    top: 90,
     borderRadius: 20,
   },
   nextCard:{
     position:"absolute",
     width: 15,
     height: 670,
-    left: 410,
-    top: 30,
+    left: 405,
+    top: 90,
     borderRadius: 20,
   },
   previousCard:{
     position:"absolute",
     width: 15,
     height: 670,
-    left: 0,
-    top: 30,
+    left: -3,
+    top: 90,
     borderRadius: 20,
   },
   cardHeader:{
@@ -179,75 +343,22 @@ const styles = StyleSheet.create({
     width: 115,
     height: 15,
     left: 150,
-    top: 50,
+    top: 110,
+  },
+  bitmojiMeditate: {
+    position: "absolute",
+    width: 144,
+    height: 144,
+    left: 145,
+    top: 570,
   },
   orangeEllipse: {
     position: "absolute",
     width: 180,
     height: 45,
-    left: 118,
-    top: 730,
+    left: 115,
+    top: 540,
     borderRadius: 57,
-  },
-  greyBox1: {
-    position: "absolute",
-    width: 133,
-    height: 149,
-    left: 66,
-    top: 232,
-    opacity: .5,
-  },
-  greyBox2: {
-    position: "absolute",
-    width: 133,
-    height: 149,
-    left: 217,
-    top: 232,
-    opacity: .5,
-  },
-  greyBox3: {
-    position: "absolute",
-    width: 133,
-    height: 149,
-    left: 66,
-    top: 437,
-    opacity: .5,
-  },
-  greyBox4: {
-    position: "absolute",
-    width: 133,
-    height: 149,
-    left: 217,
-    top: 437,
-    opacity: .5,
-  },
-  celebration: {
-    position: "absolute",
-    width: 132,
-    height: 132,
-    left: 66,
-    top: 249,
-  },
-  anxious: {
-    position: "absolute",
-    width: 133,
-    height: 149,
-    left: 210,
-    top: 221,
-  },
-  potato: {
-    position: "absolute",
-    width: 122,
-    height: 123,
-    left: 72,
-    top: 458,
-  },
-  chill: {
-    position: "absolute",
-    width: 144,
-    height: 144,
-    left: 213,
-    top: 441,
   },
   blackRect: {
     position: "absolute",
@@ -257,4 +368,36 @@ const styles = StyleSheet.create({
     top: 0,
     backgroundColor: "black",
   },
+  sliders: {
+    margin: 20,
+    width: 280,
+    top: 190,
+    left: 50,
+  },
+  sliders2: {
+    margin: 20,
+    width: 280,
+    top: 240,
+    left: 50,
+  },
+  sliders3: {
+    margin: 20,
+    width: 280,
+    top: 285,
+    left: 50,
+  },
+  back:{
+    position: "absolute",
+    width: 69,
+    height: 22,
+    left: 30,
+    top: 795,
+  },
+  circles1:{
+    position: "absolute",
+    width: 60,
+    height: 7,
+    left: 330,
+    top: 815,
+  }
 });

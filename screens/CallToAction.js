@@ -19,6 +19,8 @@ const card = require("../assets/card.png");
 const previousCard = require("../assets/previousCard.png");
 const cardHeader = require("../assets/cardHeader.png");
 const resources = require("../assets/Resources.png");
+const backButton = require("../assets/back.png");
+const circles = require("../assets/Circles1.png");
 
 export default function CallToAction({navigation, route, Lounge: Lounge}){
   return(
@@ -28,7 +30,7 @@ export default function CallToAction({navigation, route, Lounge: Lounge}){
       <Image source={cardHeader} style={styles.cardHeader}></Image>
       <ImageBackground source={resources} style={styles.moreResources}>
         <Text style={styles.resourcesText}>
-          Resources
+          More Resources
         </Text>
       </ImageBackground>
       <ImageBackground source={greyCircle} style={styles.greyCircle1}>
@@ -47,9 +49,19 @@ export default function CallToAction({navigation, route, Lounge: Lounge}){
         </Text>
       </ImageBackground>
 
+      <Image source={circles} style={styles.circles1}></Image>
+
       <TouchableOpacity
         onPress={() => {
-          navigation.popToTop();
+          navigation.goBack();
+        }}
+      >
+        <Image source={backButton} style={styles.back}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Lounge");
         }}
       >
         <ImageBackground source={orangeEllipse} style={styles.orangeEllipse}>
@@ -95,8 +107,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 45,
     height: 38,
-    left: 15,
-    top: 7,
+    left: 16,
+    top: 8,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -109,7 +121,7 @@ const styles = StyleSheet.create({
     width: 45,
     height: 38,
     left: 15,
-    top: 7,
+    top: 8,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -122,7 +134,7 @@ const styles = StyleSheet.create({
     width: 45,
     height: 38,
     left: 15,
-    top: 7,
+    top: 8,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -134,8 +146,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 207,
     height: 26,
-    left: 113,
-    top: 250,
+    left: 133,
+    top: 295,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -147,8 +159,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 207,
     height: 61,
-    left: 113,
-    top: 276,
+    left: 133,
+    top: 320,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "400",
@@ -160,8 +172,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 207,
     height: 26,
-    left: 113,
-    top: 365,
+    left: 133,
+    top: 425,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -173,8 +185,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 207,
     height: 61,
-    left: 113,
-    top: 391,
+    left: 133,
+    top: 450,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "400",
@@ -186,8 +198,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 207,
     height: 26,
-    left: 113,
-    top: 470,
+    left: 133,
+    top: 545,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
@@ -199,8 +211,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 207,
     height: 102,
-    left: 113,
-    top: 496,
+    left: 133,
+    top: 570,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "400",
@@ -210,14 +222,14 @@ const styles = StyleSheet.create({
   },
   Heres: {
     position: "absolute",
-    width: 250,
-    height: 112,
-    left: 100,
-    top: 90,
+    width: 280,
+    height: 100,
+    left: 70,
+    top: 160,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
-    fontSize: 33,
+    fontSize: 32,
     lineHeight: 36,
     color: "#FFFFFF",
   },
@@ -225,7 +237,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 114,
     height: 41,
-    left: 64,
+    left: 68,
     top: 12.5,
     fontFamily: "Graphik",
     fontStyle: "normal",
@@ -238,66 +250,58 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 114,
     height: 41,
-    left: 35,
-    top: 7,
+    left: 24,
+    top: 10,
     fontFamily: "Graphik",
     fontStyle: "normal",
     fontWeight: "600",
-    fontSize: 15,
+    fontSize: 12,
     lineHeight: 17,
     color: "#FFFFFF",
-  },
-  orangeEllipse: {
-    position: "absolute",
-    width: 180,
-    height: 45,
-    left: 118,
-    top: 730,
-    borderRadius: 57,
   },
   moreResources: {
     position: "absolute",
     width: 144,
     height: 38,
-    left: 140,
-    top: 620,
+    left: 130,
+    top: 680,
     borderRadius: 57,
   },
   greyCircle1: {
     position: "absolute",
     width: 51,
     height: 51,
-    left: 50,
-    top: 240,
+    left: 70,
+    top: 285,
   },
   greyCircle2: {
     position: "absolute",
     width: 51,
     height: 51,
-    left: 50,
-    top: 361,
+    left: 70,
+    top: 415,
   },
   greyCircle3: {
     position: "absolute",
     width: 51,
     height: 51,
-    left: 50,
-    top: 460,
+    left: 70,
+    top: 535,
   },
   card:{
     position:"absolute",
     width: 345,
     height: 670,
-    left: 40,
-    top: 30,
+    left: 36,
+    top: 90,
     borderRadius: 20,
   },
   previousCard:{
     position:"absolute",
     width: 15,
     height: 670,
-    left: 0,
-    top: 30,
+    left: -3,
+    top: 90,
     borderRadius: 20,
   },
   cardHeader:{
@@ -305,7 +309,15 @@ const styles = StyleSheet.create({
     width: 115,
     height: 15,
     left: 150,
-    top: 50,
+    top: 110,
+  },
+  orangeEllipse: {
+    position: "absolute",
+    width: 180,
+    height: 45,
+    left: 120,
+    top: 790,
+    borderRadius: 57,
   },
   blackRect: {
     position: "absolute",
@@ -314,5 +326,19 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     backgroundColor: "black",
+  },
+  back:{
+    position: "absolute",
+    width: 69,
+    height: 22,
+    left: 30,
+    top: 805,
+  },
+  circles1:{
+    position: "absolute",
+    width: 60,
+    height: 7,
+    left: 330,
+    top: 809,
   },
 });
