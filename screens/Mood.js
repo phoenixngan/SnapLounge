@@ -15,8 +15,6 @@ const previousCard = require("../assets/previousCard.png");
 const cardHeader = require("../assets/cardHeader.png");
 const shareButtons = require("../assets/shareButtons.png");
 const overwhelmed = require("../assets/overwhelmedMood.png");
-const backButton = require("../assets/back.png");
-const circles = require("../assets/Circles1.png");
 
 export default function Mood({navigation, route, CallToAction: CallToAction}){
   return(
@@ -27,15 +25,6 @@ export default function Mood({navigation, route, CallToAction: CallToAction}){
       <Image source={cardHeader} style={styles.cardHeader}></Image>
       <Image source={shareButtons} style={styles.shareButtons}></Image>
       <Image source={overwhelmed} style={styles.overwhelmed}></Image>
-      <Image source={circles} style={styles.circles1}></Image>
-
-      <TouchableOpacity
-        onPress={() => {
-          navigation.goBack();
-        }}
-      >
-        <Image source={backButton} style={styles.back}></Image>
-      </TouchableOpacity>
 
       <View style={styles.blackRect}></View>
 
@@ -217,19 +206,5 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     backgroundColor: "black",
-  },
-  back:{
-    position: "absolute",
-    width: 69,
-    height: 22,
-    left: 30,
-    top: 805,
-  },
-  circles1:{
-    position: "absolute",
-    width: 60,
-    height: 7,
-    left: 330,
-    top: 809,
   },
 });

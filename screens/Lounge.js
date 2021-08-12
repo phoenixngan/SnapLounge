@@ -8,6 +8,8 @@ import firebase from "@firebase/app";
 import * as ImagePicker from "expo-image-picker";
 import { TouchableOpacity } from "react-native";
 import LoungeIntro from "../screens/LoungeIntro";
+import Affirmations from "../screens/Affirmations";
+import FriendsLounge from "../screens/FriendsLounge";
 import { useFonts } from 'expo-font';
 
 
@@ -34,14 +36,31 @@ export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
       <Image source={background} style={styles.background}></Image>
       <Image source={image} style={styles.image}></Image>
       <Image source={cat} style={styles.cat}></Image>
-      <Image source={friends} style={styles.friends}></Image>
-      <Image source={heart} style={styles.heart}></Image>
       <Image source={date} style = {styles.date}></Image>
       <Image source={plant} style={styles.plant}></Image>
+      <View style={styles.blackRect}></View>
+
       <ImageBackground source={menu} style={styles.menu}>
         <Image source={settings} style={styles.settings}></Image>
       </ImageBackground>
       <Image source={loungeIcon} style={styles.loungeIcon}></Image>
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("FriendsLounge");
+        }}
+      >
+        <Image source={friends} style={styles.friends}></Image>
+      </TouchableOpacity>
+
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Affirmations");
+        }}
+      >
+        <Image source={heart} style={styles.heart}></Image>
+      </TouchableOpacity>
 
       <TouchableOpacity
         onPress={() => {
@@ -52,7 +71,7 @@ export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
           <Image source={back} style = {styles.back}></Image>
         </ImageBackground>
       </TouchableOpacity>
-      
+
       <View style={styles.blackRect}></View>
 
       <TouchableOpacity
@@ -214,9 +233,9 @@ const styles = StyleSheet.create({
   },
   date:{
     position: "absolute",
-    width: 115,
-    height: 115,
-    left: 40,
+    width: 110,
+    height: 110,
+    left: 45,
     top: 185,
   }
 });

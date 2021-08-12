@@ -7,6 +7,7 @@ import firebase from "@firebase/app";
 import * as ImagePicker from "expo-image-picker";
 import { TouchableOpacity } from "react-native";
 import Lounge from "../screens/Lounge";
+import Resources from "../screens/Resources";
 
 const orangeEllipse = require("../assets/orangeEllipse.png");
 const greyBox = require("../assets/greyBox.png");
@@ -19,8 +20,6 @@ const card = require("../assets/card.png");
 const previousCard = require("../assets/previousCard.png");
 const cardHeader = require("../assets/cardHeader.png");
 const resources = require("../assets/Resources.png");
-const backButton = require("../assets/back.png");
-const circles = require("../assets/Circles1.png");
 
 export default function CallToAction({navigation, route, Lounge: Lounge}){
   return(
@@ -28,11 +27,6 @@ export default function CallToAction({navigation, route, Lounge: Lounge}){
       <Image source={card} style={styles.card}></Image>
       <Image source={previousCard} style={styles.previousCard}></Image>
       <Image source={cardHeader} style={styles.cardHeader}></Image>
-      <ImageBackground source={resources} style={styles.moreResources}>
-        <Text style={styles.resourcesText}>
-          More Resources
-        </Text>
-      </ImageBackground>
       <ImageBackground source={greyCircle} style={styles.greyCircle1}>
         <Text style={styles.one}>
           1.
@@ -49,14 +43,16 @@ export default function CallToAction({navigation, route, Lounge: Lounge}){
         </Text>
       </ImageBackground>
 
-      <Image source={circles} style={styles.circles1}></Image>
-
       <TouchableOpacity
         onPress={() => {
-          navigation.goBack();
+          navigation.navigate("Resources");
         }}
       >
-        <Image source={backButton} style={styles.back}></Image>
+        <ImageBackground source={resources} style={styles.moreResources}>
+          <Text style={styles.resourcesText}>
+            More Resources
+          </Text>
+        </ImageBackground>
       </TouchableOpacity>
 
       <TouchableOpacity
@@ -326,19 +322,5 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     backgroundColor: "black",
-  },
-  back:{
-    position: "absolute",
-    width: 69,
-    height: 22,
-    left: 30,
-    top: 805,
-  },
-  circles1:{
-    position: "absolute",
-    width: 60,
-    height: 7,
-    left: 330,
-    top: 809,
   },
 });

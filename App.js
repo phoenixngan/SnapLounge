@@ -10,12 +10,17 @@ import SignupScreen from "./screens/SignupScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import BottomTabNavigator from "./navigation/BottomTabNavigator";
 import Lounge from "./screens/Lounge";
+import Affirmations from "./screens/Affirmations";
+import FriendsLounge from "./screens/FriendsLounge";
+import Bestie from "./screens/Bestie";
 import LoungeIntro from "./screens/LoungeIntro";
 import QuestionOne from "./screens/QuestionOne";
 import QuestionTwo from "./screens/QuestionTwo";
 import QuestionThree from "./screens/QuestionThree";
 import QuestionFour from "./screens/QuestionFour";
+import QuestionFive from "./screens/QuestionFive";
 import CallToAction from "./screens/CallToAction";
+import Resources from "./screens/Resources";
 import Mood from "./screens/Mood";
 import firebase from "@firebase/app";
 import { ActionSheetProvider } from "@expo/react-native-action-sheet";
@@ -45,12 +50,17 @@ function App() {
                 <Stack.Screen name="Friends" component={FriendsScreen} />
                 <Stack.Screen name="Profile" component={ProfileScreen} />
                 <Stack.Screen name="Lounge" component={Lounge} options={{headerShown: false}}/>
+                <Stack.Screen name="Affirmations" component={Affirmations} options={{headerShown: false}}/>
+                <Stack.Screen name="FriendsLounge" component={FriendsLounge} options={{headerShown: false}}/>
+                <Stack.Screen name="Bestie" component={Bestie} options={{headerShown: false}}/>
                 <Stack.Screen name="LoungeIntro" component={LoungeIntro} options={{headerShown: false}}/>
                 <Stack.Screen name="QuestionOne" component={QuestionOne} options={{headerShown: false}}/>
                 <Stack.Screen name="QuestionTwo" component={QuestionTwo} options={{headerShown: false}}/>
                 <Stack.Screen name="QuestionThree" component={QuestionThree} options={{headerShown: false}}/>
                 <Stack.Screen name="QuestionFour" component={QuestionFour} options={{headerShown: false}}/>
+                <Stack.Screen name="QuestionFive" component={QuestionFive} options={{headerShown: false}}/>
                 <Stack.Screen name="CallToAction" component={CallToAction} options={{headerShown: false}}/>
+                <Stack.Screen name="Resources" component={Resources} options={{headerShown: false}}/>
                 <Stack.Screen name="Mood" component={Mood} options={{headerShown: false}} />
               </>
             ) : (

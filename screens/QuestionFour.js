@@ -6,7 +6,7 @@ import db from "../firebase";
 import firebase from "@firebase/app";
 import * as ImagePicker from "expo-image-picker";
 import { TouchableOpacity } from "react-native";
-import Mood from "../screens/Mood";
+import QuestionFive from "../screens/QuestionFive";
 
 const orangeEllipse = require("../assets/orangeEllipse.png");
 const greyBox = require("../assets/greyBox.png");
@@ -19,9 +19,9 @@ const nextCard = require("../assets/nextCard.png");
 const previousCard = require("../assets/previousCard.png");
 const cardHeader = require("../assets/cardHeader.png");
 const backButton = require("../assets/back.png");
-const circles = require("../assets/Circles1.png");
+const circles = require("../assets/Circles5.png");
 
-export default function QuestionFour({navigation, route, Mood: Mood}){
+export default function QuestionFour({navigation, route, QuestionFive: QuestionFive}){
   return(
     <View style={styles.container}>
       <Image source={card} style={styles.card}></Image>
@@ -50,7 +50,7 @@ export default function QuestionFour({navigation, route, Mood: Mood}){
 
       <TouchableOpacity
         onPress={() => {
-          navigation.navigate("Mood");
+          navigation.navigate("QuestionFive");
         }}
       >
         <ImageBackground source={orangeEllipse} style={styles.orangeEllipse}>

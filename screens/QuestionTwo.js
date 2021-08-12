@@ -20,7 +20,7 @@ const nextCard = require("../assets/nextCard.png");
 const previousCard = require("../assets/previousCard.png");
 const cardHeader = require("../assets/cardHeader.png");
 const backButton = require("../assets/back.png");
-const circles = require("../assets/Circles1.png");
+const circles = require("../assets/Circles3.png");
 
 export default function QuestionTwo({navigation, route, QuestionThree: QuestionThree}){
   return(
