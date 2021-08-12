@@ -22,8 +22,10 @@ const circles = require("../assets/Circles2.png");
 
 
 export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo}){
-  const [outline, setOutline] = useState(false);
-  const [pressed, setPressed] = useState(false);
+  const [pressed1, setPressed1] = useState(false);
+  const [pressed2, setPressed2] = useState(false);
+  const [pressed3, setPressed3] = useState(false);
+  const [pressed4, setPressed4] = useState(false);
 
   return(
     <View style={styles.container}>
@@ -34,14 +36,35 @@ export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo
 
       <TouchableOpacity
         onPress={() => {
-          setPressed(!pressed);
+          setPressed1(!pressed1);
         }}
       >
-        <Image source={bored} style={pressed ? styles.BoredPressed : styles.Bored}></Image>
+        <Image source={bored} style={pressed1 ? styles.BoredPressed : styles.Bored}></Image>
       </TouchableOpacity>
-      <Image source={delighted} style={styles.Delighted}></Image>
-      <Image source={sad} style={styles.Sad}></Image>
-      <Image source={overwhelmed} style={styles.Overwhelmed}></Image>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed2(!pressed2);
+        }}
+      >
+        <Image source={delighted} style={pressed2 ? styles.DelightedPressed : styles.Delighted}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed3(!pressed3);
+        }}
+      >
+        <Image source={sad} style={pressed3 ? styles.SadPressed : styles.Sad}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed4(!pressed4);
+        }}
+      >
+        <Image source={overwhelmed} style={pressed4 ? styles.OverwhelmedPressed : styles.Overwhelmed}></Image>
+      </TouchableOpacity>
 
       <Image source={circles} style={styles.circles1}></Image>
 
@@ -255,6 +278,16 @@ const styles = StyleSheet.create({
     left: 66,
     top: 507,
   },
+  DelightedPressed:{
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 66,
+    top: 507,
+    borderWidth: 3,
+    borderRadius: 20,
+    borderColor: "#FFFFFF",
+  },
   Sad:{
     position: "absolute",
     width: 133,
@@ -262,11 +295,31 @@ const styles = StyleSheet.create({
     left: 217,
     top: 302,
   },
+  SadPressed:{
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 217,
+    top: 302,
+    borderWidth: 3,
+    borderRadius: 20,
+    borderColor: "#FFFFFF",
+  },
   Overwhelmed:{
     position: "absolute",
     width: 133,
     height: 149,
     left: 217,
     top: 507,
+  },
+  OverwhelmedPressed:{
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 217,
+    top: 507,
+    borderWidth: 3,
+    borderRadius: 20,
+    borderColor: "#FFFFFF",
   },
 });

@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useCallback, useEffect } from "react";
-import { StyleSheet, View, LogBox } from "react-native";
+import { StyleSheet, View} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import ChatScreen from "./screens/ChatScreen";
@@ -27,8 +27,7 @@ import firebase from "@firebase/app";
 import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 
 const Stack = createStackNavigator();
-LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
-LogBox.ignoreAllLogs();//Ignore all log notifications
+
 
 function App() {
   const [isSignedIn, setIsSignedIn] = useState(

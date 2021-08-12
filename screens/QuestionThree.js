@@ -27,7 +27,10 @@ const noneLife = require("../assets/noneLife.png");
 
 export default function QuestionThree({navigation, route, QuestionFour: QuestionFour}){
   const [opacity, setOpacity] = useState(.5);
-  const [pressed, setPressed] = useState(false);
+  const [pressed1, setPressed1] = useState(false);
+  const [pressed2, setPressed2] = useState(false);
+  const [pressed3, setPressed3] = useState(false);
+  const [pressed4, setPressed4] = useState(false);
 
   return(
     <View style={styles.container}>
@@ -38,35 +41,60 @@ export default function QuestionThree({navigation, route, QuestionFour: Question
 
       <TouchableOpacity
         onPress={() => {
-          setPressed(!pressed);
+          setPressed1(!pressed1);
         }}>
-        <Image source={greyBox} style={pressed ? styles.greyBox1Pressed : styles.greyBox1}></Image>
-      </TouchableOpacity>
-
-      <TouchableOpacity>
-        <Image source={greyBox} style={styles.greyBox2}></Image>
-      </TouchableOpacity>
-
-      <TouchableOpacity>
-        <Image source={greyBox} style={styles.greyBox3}></Image>
-      </TouchableOpacity>
-
-      <TouchableOpacity>
-        <Image source={greyBox} style={styles.greyBox4}></Image>
+        <Image source={greyBox} style={pressed1 ? styles.greyBox1Pressed : styles.greyBox1}></Image>
       </TouchableOpacity>
 
       <TouchableOpacity
         onPress={() => {
-          console.log("HERE");
-          setPressed(!pressed);
+          setPressed2(!pressed2);
+        }}>
+        <Image source={greyBox} style={pressed2 ? styles.greyBox2Pressed : styles.greyBox2}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed3(!pressed3);
+        }}>
+        <Image source={greyBox} style={pressed3 ? styles.greyBox3Pressed : styles.greyBox3}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed4(!pressed4);
+        }}>
+        <Image source={greyBox} style={pressed4 ? styles.greyBox4Pressed : styles.greyBox4}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed1(!pressed1);
         }}>
         <Image source={workLife} style={styles.celebration}></Image>
       </TouchableOpacity>
 
+      <TouchableOpacity
+        onPress={() => {
+          setPressed2(!pressed2);
+        }}>
+        <Image source={socialLife} style={styles.anxious}></Image>
+      </TouchableOpacity>
 
-      <Image source={socialLife} style={styles.anxious}></Image>
-      <Image source={homeLife} style={styles.potato}></Image>
-      <Image source={noneLife} style={styles.chill}></Image>
+      <TouchableOpacity
+        onPress={() => {
+          setPressed3(!pressed3);
+        }}>
+        <Image source={homeLife} style={styles.potato}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed4(!pressed4);
+        }}>
+        <Image source={noneLife} style={styles.chill}></Image>
+      </TouchableOpacity>
+
       <Image source={circles} style={styles.circles1}></Image>
 
       <TouchableOpacity
@@ -175,7 +203,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 251,
     height: 99,
-    left: 82,
+    left: 90,
     top: 164,
     fontFamily: "Graphik",
     fontWeight: "600",
@@ -271,6 +299,14 @@ const styles = StyleSheet.create({
     top: 302,
     opacity: .5,
   },
+  greyBox2Pressed: {
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 217,
+    top: 302,
+    opacity: 1,
+  },
   greyBox3: {
     position: "absolute",
     width: 133,
@@ -279,6 +315,14 @@ const styles = StyleSheet.create({
     top: 507,
     opacity: .5,
   },
+  greyBox3Pressed: {
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 66,
+    top: 507,
+    opacity: 1,
+  },
   greyBox4: {
     position: "absolute",
     width: 133,
@@ -286,6 +330,14 @@ const styles = StyleSheet.create({
     left: 217,
     top: 507,
     opacity: .5,
+  },
+  greyBox4Pressed: {
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 217,
+    top: 507,
+    opacity: 1,
   },
   celebration: {
     position: "absolute",
@@ -296,10 +348,10 @@ const styles = StyleSheet.create({
   },
   anxious: {
     position: "absolute",
-    width: 133,
-    height: 149,
-    left: 210,
-    top: 291,
+    width: 120,
+    height: 140,
+    left: 220,
+    top: 305,
   },
   potato: {
     position: "absolute",
@@ -310,10 +362,10 @@ const styles = StyleSheet.create({
   },
   chill: {
     position: "absolute",
-    width: 144,
-    height: 144,
-    left: 213,
-    top: 511,
+    width: 120,
+    height: 120,
+    left: 225,
+    top: 520,
   },
   blackRect: {
     position: "absolute",

@@ -22,20 +22,73 @@ const backButton = require("../assets/back.png");
 const circles = require("../assets/Circles5.png");
 
 export default function QuestionFour({navigation, route, QuestionFive: QuestionFive}){
+  const [pressed1, setPressed1] = useState(false);
+  const [pressed2, setPressed2] = useState(false);
+  const [pressed3, setPressed3] = useState(false);
+  const [pressed4, setPressed4] = useState(false);
+
   return(
     <View style={styles.container}>
       <Image source={card} style={styles.card}></Image>
       <Image source={nextCard} style={styles.nextCard}></Image>
       <Image source={previousCard} style={styles.previousCard}></Image>
       <Image source={cardHeader} style={styles.cardHeader}></Image>
-      <Image source={greyBox} style={styles.greyBox1}></Image>
-      <Image source={greyBox} style={styles.greyBox2}></Image>
-      <Image source={greyBox} style={styles.greyBox3}></Image>
-      <Image source={greyBox} style={styles.greyBox4}></Image>
-      <Image source={celebration} style={styles.celebration}></Image>
-      <Image source={anxious} style={styles.anxious}></Image>
-      <Image source={potato} style={styles.potato}></Image>
-      <Image source={chill} style={styles.chill}></Image>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed1(!pressed1);
+        }}>
+        <Image source={greyBox} style={pressed1 ? styles.greyBox1Pressed : styles.greyBox1}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed2(!pressed2);
+        }}>
+        <Image source={greyBox} style={pressed2 ? styles.greyBox2Pressed : styles.greyBox2}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed3(!pressed3);
+        }}>
+        <Image source={greyBox} style={pressed3 ? styles.greyBox3Pressed : styles.greyBox3}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed4(!pressed4);
+        }}>
+        <Image source={greyBox} style={pressed4 ? styles.greyBox4Pressed : styles.greyBox4}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed1(!pressed1);
+        }}>
+        <Image source={celebration} style={styles.celebration}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed2(!pressed2);
+        }}>
+        <Image source={anxious} style={styles.anxious}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed3(!pressed3);
+        }}>
+        <Image source={potato} style={styles.potato}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed4(!pressed4);
+        }}>
+        <Image source={chill} style={styles.chill}></Image>
+      </TouchableOpacity>
       <Image source={circles} style={styles.circles1}></Image>
 
       <TouchableOpacity
@@ -139,9 +192,9 @@ const styles = StyleSheet.create({
   },
   Pick: {
     position: "absolute",
-    width: 251,
+    width: 250,
     height: 99,
-    left: 82,
+    left: 95,
     top: 164,
     fontFamily: "Graphik",
     fontWeight: "600",
@@ -209,6 +262,14 @@ const styles = StyleSheet.create({
     top: 302,
     opacity: .5,
   },
+  greyBox1Pressed: {
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 66,
+    top: 302,
+    opacity: 1,
+  },
   greyBox2: {
     position: "absolute",
     width: 133,
@@ -216,6 +277,14 @@ const styles = StyleSheet.create({
     left: 217,
     top: 302,
     opacity: .5,
+  },
+  greyBox2Pressed: {
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 217,
+    top: 302,
+    opacity: 1,
   },
   greyBox3: {
     position: "absolute",
@@ -225,6 +294,14 @@ const styles = StyleSheet.create({
     top: 507,
     opacity: .5,
   },
+  greyBox3Pressed: {
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 66,
+    top: 507,
+    opacity: 1,
+  },
   greyBox4: {
     position: "absolute",
     width: 133,
@@ -232,6 +309,14 @@ const styles = StyleSheet.create({
     left: 217,
     top: 507,
     opacity: .5,
+  },
+  greyBox4Pressed: {
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 217,
+    top: 507,
+    opacity: 1,
   },
   celebration: {
     position: "absolute",
