@@ -10,6 +10,7 @@ import { TouchableOpacity } from "react-native";
 import LoungeIntro from "../screens/LoungeIntro";
 import Affirmations from "../screens/Affirmations";
 import FriendsLounge from "../screens/FriendsLounge";
+import Settings from "../screens/Settings";
 import { useFonts } from 'expo-font';
 
 
@@ -39,11 +40,18 @@ export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
       <Image source={date} style = {styles.date}></Image>
       <Image source={plant} style={styles.plant}></Image>
       <View style={styles.blackRect}></View>
-
-      <ImageBackground source={menu} style={styles.menu}>
-        <Image source={settings} style={styles.settings}></Image>
-      </ImageBackground>
       <Image source={loungeIcon} style={styles.loungeIcon}></Image>
+
+
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Settings");
+        }}
+      >
+        <ImageBackground source={menu} style={styles.menu}>
+          <Image source={settings} style={styles.settings}></Image>
+        </ImageBackground>
+      </TouchableOpacity>
 
       <TouchableOpacity
         onPress={() => {

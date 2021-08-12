@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { Image, Platform, View, Button, StatusBar, StyleSheet, Text, ImageBackground } from "react-native";
+import { Image, Platform, View, Button, StatusBar, StyleSheet, Text, ImageBackground,  KeyboardAvoidingView, TextInput } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { GiftedChat, Actions } from "react-native-gifted-chat";
 import db from "../firebase";
@@ -31,6 +31,16 @@ export default function QuestionFive({navigation, route, back, Mood: Mood}){
       <Image source={circles} style={styles.circles1}></Image>
       <Image source={gratitude} style={styles.gratitude}></Image>
       <Image source={inputBox} style={styles.inputBox}></Image>
+
+      <KeyboardAvoidingView behavior="position">
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.inputs}
+            placeholder="Share something here!"
+          />
+        </View>
+      </KeyboardAvoidingView>
+
       <TouchableOpacity
         onPress={() => {
           navigation.goBack();
@@ -158,5 +168,20 @@ const styles = StyleSheet.create({
     height: 7,
     left: 330,
     top: 809,
-  }
+  },
+  inputContainer: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 8,
+    width: 220,
+    height: 35,
+    top: 415,
+    left: 98,
+  },
+  inputs: {
+    height: 45,
+    marginLeft: 16,
+    borderBottomColor: "#FFFFFF",
+    justifyContent: "center",
+    flex: 1,
+  },
 });

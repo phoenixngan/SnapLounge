@@ -20,16 +20,25 @@ const cardHeader = require("../assets/cardHeader.png");
 const backButton = require("../assets/back.png");
 const circles = require("../assets/Circles2.png");
 
-export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo}){
-  return(
 
+export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo}){
+  const [outline, setOutline] = useState(false);
+  const [pressed, setPressed] = useState(false);
+
+  return(
     <View style={styles.container}>
       <Image source={card} style={styles.card}></Image>
       <Image source={nextCard} style={styles.nextCard}></Image>
       <Image source={previousCard} style={styles.previousCard}></Image>
       <Image source={cardHeader} style={styles.cardHeader}></Image>
 
-      <Image source={bored} style={styles.Bored}></Image>
+      <TouchableOpacity
+        onPress={() => {
+          setPressed(!pressed);
+        }}
+      >
+        <Image source={bored} style={pressed ? styles.BoredPressed : styles.Bored}></Image>
+      </TouchableOpacity>
       <Image source={delighted} style={styles.Delighted}></Image>
       <Image source={sad} style={styles.Sad}></Image>
       <Image source={overwhelmed} style={styles.Overwhelmed}></Image>
@@ -61,7 +70,6 @@ export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo
       <Text style={styles.Which}>
         Which Meme best represents your mood?
       </Text>
-
       <Text style={styles.bored}>
         Bored
       </Text>
@@ -74,7 +82,6 @@ export default function QuestionOne({navigation, route, QuestionTwo: QuestionTwo
       <Text style={styles.overwhelmed}>
         Overwhelmed
       </Text>
-
     </View>
   );
 }
@@ -230,6 +237,16 @@ const styles = StyleSheet.create({
     height: 149,
     left: 66,
     top: 302,
+  },
+  BoredPressed:{
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 66,
+    top: 302,
+    borderWidth: 3,
+    borderRadius: 20,
+    borderColor: "#FFFFFF",
   },
   Delighted:{
     position: "absolute",

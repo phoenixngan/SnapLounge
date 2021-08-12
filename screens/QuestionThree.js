@@ -26,17 +26,44 @@ const homeLife = require("../assets/homeLife.png");
 const noneLife = require("../assets/noneLife.png");
 
 export default function QuestionThree({navigation, route, QuestionFour: QuestionFour}){
+  const [opacity, setOpacity] = useState(.5);
+  const [pressed, setPressed] = useState(false);
+
   return(
     <View style={styles.container}>
       <Image source={card} style={styles.card}></Image>
       <Image source={nextCard} style={styles.nextCard}></Image>
       <Image source={previousCard} style={styles.previousCard}></Image>
       <Image source={cardHeader} style={styles.cardHeader}></Image>
-      <Image source={greyBox} style={styles.greyBox1}></Image>
-      <Image source={greyBox} style={styles.greyBox2}></Image>
-      <Image source={greyBox} style={styles.greyBox3}></Image>
-      <Image source={greyBox} style={styles.greyBox4}></Image>
-      <Image source={workLife} style={styles.celebration}></Image>
+
+      <TouchableOpacity
+        onPress={() => {
+          setPressed(!pressed);
+        }}>
+        <Image source={greyBox} style={pressed ? styles.greyBox1Pressed : styles.greyBox1}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity>
+        <Image source={greyBox} style={styles.greyBox2}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity>
+        <Image source={greyBox} style={styles.greyBox3}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity>
+        <Image source={greyBox} style={styles.greyBox4}></Image>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          console.log("HERE");
+          setPressed(!pressed);
+        }}>
+        <Image source={workLife} style={styles.celebration}></Image>
+      </TouchableOpacity>
+
+
       <Image source={socialLife} style={styles.anxious}></Image>
       <Image source={homeLife} style={styles.potato}></Image>
       <Image source={noneLife} style={styles.chill}></Image>
@@ -227,6 +254,14 @@ const styles = StyleSheet.create({
     left: 66,
     top: 302,
     opacity: .5,
+  },
+  greyBox1Pressed: {
+    position: "absolute",
+    width: 133,
+    height: 149,
+    left: 66,
+    top: 302,
+    opacity: 1,
   },
   greyBox2: {
     position: "absolute",
