@@ -15,6 +15,7 @@ const previousCard = require("../assets/previousCard.png");
 const cardHeader = require("../assets/cardHeader.png");
 const shareButtons = require("../assets/shareButtons.png");
 const overwhelmed = require("../assets/overwhelmedMood.png");
+const heart = require("../assets/heartIcon.png");
 
 export default function Mood({navigation, route, CallToAction: CallToAction}){
   return(
@@ -25,6 +26,7 @@ export default function Mood({navigation, route, CallToAction: CallToAction}){
       <Image source={cardHeader} style={styles.cardHeader}></Image>
       <Image source={shareButtons} style={styles.shareButtons}></Image>
       <Image source={overwhelmed} style={styles.overwhelmed}></Image>
+      <Image source={heart} style={styles.heart}></Image>
 
       <View style={styles.blackRect}></View>
 
@@ -191,6 +193,13 @@ const styles = StyleSheet.create({
     height: 36,
     left: 70,
     top: 670,
+  },
+  heart: {
+    position: "absolute",
+    left: 318.25,
+    top: 679.5,
+    width: 20,
+    height: 17,
   },
   overwhelmed:{
     position: "absolute",

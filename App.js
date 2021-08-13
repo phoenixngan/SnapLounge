@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useCallback, useEffect } from "react";
-import { StyleSheet, View} from "react-native";
+import { StyleSheet, View, LogBox} from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import ChatScreen from "./screens/ChatScreen";
@@ -21,12 +21,17 @@ import QuestionThree from "./screens/QuestionThree";
 import QuestionFour from "./screens/QuestionFour";
 import QuestionFive from "./screens/QuestionFive";
 import CallToAction from "./screens/CallToAction";
+import Push from "./screens/Push";
+import Manage from "./screens/Manage";
 import Resources from "./screens/Resources";
 import Mood from "./screens/Mood";
 import firebase from "@firebase/app";
 import { ActionSheetProvider } from "@expo/react-native-action-sheet";
 
 const Stack = createStackNavigator();
+
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 
 
 function App() {
@@ -53,6 +58,8 @@ function App() {
                 <Stack.Screen name="Profile" component={ProfileScreen} />
                 <Stack.Screen name="Lounge" component={Lounge} options={{headerShown: false}}/>
                 <Stack.Screen name="Settings" component={Settings} options={{headerShown: false}}/>
+                <Stack.Screen name="Push" component={Push} options={{headerShown: false}}/>
+                <Stack.Screen name="Manage" component={Manage} options={{headerShown: false}}/>
                 <Stack.Screen name="Affirmations" component={Affirmations} options={{headerShown: false}}/>
                 <Stack.Screen name="FriendsLounge" component={FriendsLounge} options={{headerShown: false}}/>
                 <Stack.Screen name="Bestie" component={Bestie} options={{headerShown: false}}/>

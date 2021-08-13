@@ -88,9 +88,9 @@ export default function Lounge({navigation, route, LoungeIntro: LoungeIntro}){
         }}
       >
         <ImageBackground source={checkIn} style={styles.image3}>
-        <Text style={styles.text2}>
-          Check In
-        </Text>
+          <Text style={styles.text2}>
+            Check In
+          </Text>
         </ImageBackground>
       </TouchableOpacity>
       <Text style={styles.text3}>
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   text3: {
     position: "absolute",
-    width: 182,
+    width: 150,
     height: 57,
     left: 175,
     top: 200,

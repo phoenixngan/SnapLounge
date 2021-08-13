@@ -10,21 +10,16 @@ import { TouchableOpacity } from "react-native";
 import Lounge from "../screens/Lounge";
 import { useFonts } from 'expo-font';
 import FastImage from 'react-native-fast-image'
-import Push from "../screens/Push";
-import Manage from "../screens/Manage";
 
-let background = require("../assets/shadedBackground.png");
+let background = require("../assets/pushPage.png");
 let back = require("../assets/doneBox.png");
-let settingsModal = require("../assets/settingsModal.png");
 
-export default function Settings({navigation, route}){
+export default function Push({navigation, route}){
   return(
     <View style={styles.container}>
       <StatusBar style="light" />
       <Image source={background} style={styles.background}></Image>
       <View style={styles.blackRect}></View>
-      <Image source={settingsModal} style={styles.settingsModal}></Image>
-      <View style={styles.line}></View>
 
       <TouchableOpacity
         onPress={()=>{
@@ -34,21 +29,6 @@ export default function Settings({navigation, route}){
           <Text style={styles.text}> Done </Text>
         </ImageBackground>
       </TouchableOpacity>
-
-      <TouchableOpacity
-        onPress={()=>{
-          navigation.navigate("Push");
-        }}>
-        <Text style={styles.push}> Manage Push Notifications </Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        onPress={()=>{
-          navigation.navigate("Manage");
-        }}>
-        <Text style={styles.manage}> Manage Who Can See My Lounge </Text>
-      </TouchableOpacity>
-
 
     </View>
   );
@@ -71,7 +51,7 @@ const styles = StyleSheet.create({
     width: 375,
     height: 44,
     left: 20,
-    top: 800,
+    top: 840,
     borderRadius: 9,
   },
   text:{
@@ -80,28 +60,6 @@ const styles = StyleSheet.create({
     height: 40,
     left: 160,
     top: 12.5,
-    fontFamily: "graphik",
-    fontWeight: "bold",
-    fontSize: 17,
-    lineHeight: 19,
-  },
-  push:{
-    position: "absolute",
-    width: 230,
-    height: 20,
-    left: 40,
-    top: 707,
-    fontFamily: "graphik",
-    fontWeight: "bold",
-    fontSize: 17,
-    lineHeight: 19,
-  },
-  manage:{
-    position: "absolute",
-    width: 280,
-    height: 20,
-    left: 40,
-    top: 755,
     fontFamily: "graphik",
     fontWeight: "bold",
     fontSize: 17,
@@ -123,21 +81,4 @@ const styles = StyleSheet.create({
     top: 50,
     backgroundColor: "black",
   },
-  settingsModal:{
-    position: "absolute",
-    width: 375,
-    height: 100,
-    left: 20,
-    top: 690,
-    borderRadius: 9,
-  },
-  line:{
-    position: "absolute",
-    width: 375,
-    height: 1,
-    left: 20,
-    top: 740,
-    backgroundColor: "grey",
-    opacity: .5,
-  }
 });

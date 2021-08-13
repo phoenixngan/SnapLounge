@@ -15,6 +15,7 @@ const bitmojiGuy = require("../assets/bitmojiGuy.png");
 const orangeEllipse = require("../assets/orangeEllipse.png");
 const card = require("../assets/card.png");
 const nextCard = require("../assets/nextCard.png");
+const previousCard = require("../assets/previousCard.png");
 const cardHeader = require("../assets/cardHeader.png");
 const backButton = require("../assets/back.png");
 const circles = require("../assets/Circles6.png");
@@ -27,6 +28,7 @@ export default function QuestionFive({navigation, route, back, Mood: Mood}){
     <View style={styles.container}>
       <Image source={card} style={styles.card}></Image>
       <Image source={nextCard} style={styles.nextCard}></Image>
+      <Image source={previousCard} style={styles.previousCard}></Image>
       <Image source={cardHeader} style={styles.cardHeader}></Image>
       <Image source={circles} style={styles.circles1}></Image>
       <Image source={gratitude} style={styles.gratitude}></Image>
@@ -58,7 +60,7 @@ export default function QuestionFive({navigation, route, back, Mood: Mood}){
       >
         <ImageBackground source={orangeEllipse} style={styles.orangeEllipse}>
         <Text style={styles.done}>
-          Done!
+          Finish!
         </Text>
         </ImageBackground>
       </TouchableOpacity>
@@ -93,7 +95,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     width: 114,
     height: 41,
-    left: 70,
+    left: 69,
     top: 12.5,
     fontFamily: "Graphik",
     fontStyle: "normal",
@@ -114,7 +116,15 @@ const styles = StyleSheet.create({
     position:"absolute",
     width: 15,
     height: 670,
-    left: 405,
+    left: 402,
+    top: 90,
+    borderRadius: 20,
+  },
+  previousCard:{
+    position:"absolute",
+    width: 15,
+    height: 670,
+    left: -3,
     top: 90,
     borderRadius: 20,
   },
@@ -152,7 +162,7 @@ const styles = StyleSheet.create({
     width: 180,
     height: 45,
     left: 120,
-    top: 790,
+    top: 757,
     borderRadius: 57,
   },
   back:{
@@ -160,7 +170,7 @@ const styles = StyleSheet.create({
     width: 69,
     height: 22,
     left: 30,
-    top: 805,
+    top: 770,
   },
   circles1:{
     position: "absolute",
